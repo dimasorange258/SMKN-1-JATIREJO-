@@ -2,9 +2,9 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>LUNA EDU</title>
-
+ 
 <style>
 * {
     margin: 0;
@@ -12,28 +12,18 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
 }
-
-/* ========================= */
-/* 🔥 OPSI BACKGROUND GLOBAL */
-/* ========================= */
+ 
 body {
-    /* OPSI 1: background biasa */
     background: #0b0b2b;
-
-    /* OPSI 2: pakai gambar full (aktifkan jika mau) */
-    /* background: url("HOME.png") no-repeat center center fixed;
-       background-size: cover; */
-
     overflow-x: hidden;
 }
-
+ 
 /* ===== LOADING SCREEN ===== */
 .loader {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: url("https://github.com/dimasorange258/testing/blob/main/images/hum.gif?raw=true");
-    opacity: 100;
+    background: url("https://github.com/dimasorange258/testing/blob/main/images/hum.gif?raw=true") center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,233 +31,285 @@ body {
     z-index: 9999;
     color: white;
 }
-
+ 
 .loader img {
-    width: 700px;
+    width: min(700px, 90vw);
     margin-bottom: 10px;
     animation: zoomIn 5s ease;
 }
-
-
-
-/* animasi */
+ 
 @keyframes zoomIn {
     from { transform: scale(0.5); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+    to   { transform: scale(1);   opacity: 1; }
 }
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 220px }
-}
-
-@keyframes blink {
-    50% { border-color: transparent }
-}
-
-/* sembunyikan setelah load */
+ 
 .hide {
     opacity: 0;
     visibility: hidden;
     transition: 0.5s;
 }
-/* ===== HERO GALAXY ===== */
+ 
+/* ===== HERO ===== */
 .hero {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     background: radial-gradient(circle at top, #6a0dad, #1a0033);
     color: white;
     overflow: hidden;
 }
-
-/* efek bintang */
+ 
 .hero::before {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url("https://github.com/dimasorange258/testing/blob/main/images/hum.gif?raw=true");
-    opacity: 0.7;
+    inset: 0;
+    background: url("https://github.com/dimasorange258/testing/blob/main/images/hum.gif?raw=true") center/cover;
+    opacity: 0.15;
+    pointer-events: none;
 }
-
-/* ========================= */
-/* 🌕 GAMBAR BULAN (SUDAH FIX) */
-/* ========================= */
+ 
+/* bulan dekoratif — disembunyikan di desktop juga karena path lokal tidak bisa dipakai */
 .hero::after {
-    content: "";
-    position: absolute;
-    left: -120px;
-    bottom: -80px;
-    width: 500px;
-    height: 500px;
-
-    /* ========================= */
-    /* 🔥 PILIH SALAH SATU */
-    /* ========================= */
-
-    /* ✅ OPSI 1: GAMBAR LOKAL */
-    background: url("C:\Users\ASUS\Downloads\HOME.png") no-repeat center;
-
-    /* ✅ OPSI 2: GAMBAR ONLINE */
-    /* background: url("C:\Users\ASUS\Downloads\HOME.png") no-repeat center; */
-
-    /* ========================= */
-
-    background-size: contain;
-    opacity: 0.9;
-    z-index: 1;
-
-    /* glow */
-    filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.6));
+    content: none;
 }
-
-/* NAVBAR */
+ 
+/* ===== NAVBAR ===== */
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 25px 60px;
     align-items: center;
+    padding: 20px 40px;
     position: relative;
     z-index: 2;
 }
-
+ 
 .navbar h2 {
     font-size: 28px;
     letter-spacing: 2px;
 }
-
-.navbar ul {
+ 
+/* menu hamburger — hanya muncul di mobile */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 10;
+}
+ 
+.nav-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+ 
+.nav-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+ 
+.nav-menu {
     display: flex;
     gap: 30px;
     list-style: none;
 }
-
-.navbar ul li {
+ 
+.nav-menu li {
     cursor: pointer;
     transition: 0.3s;
+    font-size: 16px;
 }
-
-.navbar ul li:hover {
-    color: #c084fc;
-}
-
-/* HERO CONTENT */
+ 
+.nav-menu li:hover { color: #c084fc; }
+ 
+/* ===== HERO CONTENT ===== */
 .hero-content {
-    height: 85vh;
+    min-height: calc(100vh - 80px);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
+    padding: 40px 20px;
     position: relative;
     z-index: 2;
 }
-
-/* JUDUL BESAR */
+ 
 .hero-text h1 {
-    font-size: 100px;
+    font-size: clamp(48px, 12vw, 100px);
     font-weight: 900;
     letter-spacing: 4px;
     text-shadow: 6px 6px 0 rgba(0,0,0,0.4);
+    line-height: 1.1;
 }
-
-/* SUBTITLE */
+ 
 .hero-text p {
-    font-size: 24px;
-    margin: 20px 0;
+    font-size: clamp(14px, 4vw, 24px);
+    margin: 16px 0 28px;
     opacity: 0.9;
+    max-width: 500px;
+    line-height: 1.5;
 }
-
-/* BUTTON */
+ 
+/* ===== BUTTON ===== */
 .btn {
+    display: inline-block;
     border: none;
     cursor: pointer;
     border-radius: 50px;
-    padding: 15px 40px;
+    padding: 14px 36px;
     font-weight: bold;
-    font-size: 18px;
-    transition: 0.3s;
+    font-size: clamp(15px, 4vw, 18px);
+    transition: transform 0.3s;
+    text-decoration: none;
 }
-.btn {
-    text-decoration: none; /* hilangkan garis bawah */
-    display: inline-block;
-}
+ 
 .btn-primary {
     background: linear-gradient(135deg, #a855f7, #6d28d9);
     color: white;
 }
-
-.btn:hover {
-    transform: scale(1.1);
-}
-
+ 
+.btn:hover  { transform: scale(1.08); }
+.btn:active { transform: scale(0.97); }
+ 
 /* ===== FOOTER ===== */
 .footer {
     background: whitesmoke;
     color: black;
-    padding: 25px 40px;
+    padding: 30px 30px 20px;
 }
-
+ 
 .footer-content {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 24px;
 }
-
-.footer h3 {
-    margin-bottom: 10px;
-}
-
+ 
+.footer h3 { margin-bottom: 10px; font-size: 16px; }
+ 
 .footer p {
+    font-size: 14px;
     opacity: 0.85;
     margin-bottom: 5px;
     transition: 0.3s;
+    line-height: 1.5;
 }
-
+ 
 .footer p:hover {
     transform: translateX(5px);
     color: #c084fc;
     cursor: pointer;
 }
-
+ 
 .footer-bottom {
     background: white;
     color: black;
     text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    letter-spacing: 1px;
+    padding: 12px 16px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
 }
-
-/* ANIMASI */
-@keyframes zoomIn {
-    from { transform: scale(0.5); }
-    to { transform: scale(1); }
+ 
+/* ===================== */
+/* 📱 RESPONSIVE — HP    */
+/* ===================== */
+@media (max-width: 768px) {
+ 
+    /* navbar */
+    .navbar {
+        padding: 18px 20px;
+    }
+ 
+    .navbar h2 { font-size: 22px; }
+ 
+    .nav-toggle { display: flex; }
+ 
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 0; right: 0;
+        width: 70vw;
+        max-width: 260px;
+        height: 100vh;
+        background: rgba(26, 0, 51, 0.97);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 36px;
+        padding: 40px 20px;
+        z-index: 5;
+        backdrop-filter: blur(12px);
+        animation: slideIn 0.3s ease;
+    }
+ 
+    .nav-menu.open { display: flex; }
+ 
+    @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to   { transform: translateX(0);    opacity: 1; }
+    }
+ 
+    .nav-menu li { font-size: 20px; }
+ 
+    /* overlay gelap saat menu terbuka */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 4;
+    }
+    .nav-overlay.open { display: block; }
+ 
+    /* hero */
+    .hero-content { padding: 30px 16px; }
+ 
+    .hero-text h1 { letter-spacing: 2px; }
+ 
+    /* footer */
+    .footer-content { flex-direction: column; gap: 20px; }
+    .footer { padding: 24px 20px 16px; }
+    .footer-bottom { font-size: 11px; padding: 10px; }
+}
+ 
+@media (max-width: 380px) {
+    .hero-text h1 { font-size: 40px; }
+    .hero-text p  { font-size: 13px; }
+    .btn          { padding: 12px 28px; font-size: 14px; }
 }
 </style>
 </head>
-
+ 
 <body>
-
+ 
 <!-- LOADER -->
 <div class="loader" id="loader">
-    <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
-
+    <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true" alt="Logo LUNA EDU">
 </div>
-
+ 
+<!-- overlay untuk menutup menu -->
+<div class="nav-overlay" id="navOverlay"></div>
+ 
 <!-- HERO -->
 <div class="hero">
-
+ 
     <div class="navbar">
         <h2>LUNA</h2>
-        <ul>
-            <li>Home</li>
-            <li>Tentang Kami</li>
-            <li>Kontak</li>
+ 
+        <!-- tombol hamburger -->
+        <div class="nav-toggle" id="navToggle" aria-label="Buka menu">
+            <span></span><span></span><span></span>
+        </div>
+ 
+        <ul class="nav-menu" id="navMenu">
+            <li onclick="closeMenu()">Home</li>
+            <li onclick="closeMenu()">Tentang Kami</li>
+            <li onclick="closeMenu()">Kontak</li>
         </ul>
     </div>
-
+ 
     <div class="hero-content">
         <div class="hero-text">
             <h1>LUNA.EDU</h1>
@@ -275,19 +317,18 @@ body {
             <a href="HALAMAN1.HTML" class="btn btn-primary">GET STARTED</a>
         </div>
     </div>
-
+ 
 </div>
-
+ 
 <!-- FOOTER -->
 <div class="footer">
     <div class="footer-content">
         <div>
             <h3>Alamat Sekolah</h3>
             <p>SMK Negeri 1 Jatirejo</p>
-            <p>JJL. RAYA SUMENGKO JATIREJO, Sumengko, Kec. Jatirejo, Mojokerto</p>
+            <p>JL. RAYA SUMENGKO JATIREJO, Sumengko, Kec. Jatirejo, Mojokerto</p>
             <p>Jawa Timur, Indonesia</p>
         </div>
-
         <div>
             <h3>Follow Us</h3>
             <p>📘 Facebook: smkn1jatirejo</p>
@@ -295,18 +336,47 @@ body {
         </div>
     </div>
 </div>
-
+ 
 <div class="footer-bottom">
     <p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
 </div>
-
+ 
 <script>
-window.onload = function() {
+// ── loader ──
+window.onload = function () {
     setTimeout(() => {
-        document.getElementById("loader").style.display = "none";
+        const loader = document.getElementById("loader");
+        loader.style.opacity    = "0";
+        loader.style.visibility = "hidden";
+        loader.style.transition = "0.5s";
     }, 2000);
+};
+ 
+// ── hamburger menu ──
+const toggle  = document.getElementById("navToggle");
+const menu    = document.getElementById("navMenu");
+const overlay = document.getElementById("navOverlay");
+ 
+function openMenu() {
+    toggle.classList.add("open");
+    menu.classList.add("open");
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
 }
+ 
+function closeMenu() {
+    toggle.classList.remove("open");
+    menu.classList.remove("open");
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+}
+ 
+toggle.addEventListener("click", () => {
+    menu.classList.contains("open") ? closeMenu() : openMenu();
+});
+ 
+overlay.addEventListener("click", closeMenu);
 </script>
-
+ 
 </body>
 </html>
