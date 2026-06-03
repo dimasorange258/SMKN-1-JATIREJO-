@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LKPD | LUNA EDU</title>
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:white;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    background:
+    linear-gradient(rgba(20,0,60,0.78), rgba(60,0,120,0.88)),
+    url("https://github.com/dimasorange258/testing/blob/main/images/hu%20'.gif?raw=true");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 70px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.menu{
+    display:flex;
+    gap:50px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:300;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#d8b4fe;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:30px 90px 120px;
+    position:relative;
+}
+
+/* ===== TITLE ===== */
+
+.title{
+    position:relative;
+    z-index:2;
+
+    font-size:95px;
+    font-family:'Baloo 2', cursive;
+
+    text-shadow:
+    0 5px 0 #6b21a8,
+    0 12px 25px rgba(0,0,0,0.5);
+
+    margin-top:30px;
+
+    text-align:center;
+}
+
+.subtitle{
+    position:relative;
+    z-index:2;
+
+    font-size:22px;
+    margin-top:10px;
+
+    opacity:0.9;
+
+    text-align:center;
+}
+
+/* ===== WRAPPER ===== */
+
+.modul-wrapper{
+    margin-top:45px;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:40px;
+
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 30px rgba(192,132,252,0.35);
+}
+
+/* ================================= */
+/* QUIZ INTERAKTIF */
+/* ================================= */
+
+.quiz-box{
+
+    background:#f8f5ff;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+}
+
+.quiz-box h2{
+
+    color:#4c1d95;
+
+    margin-bottom:35px;
+
+    font-size:38px;
+
+    text-align:center;
+}
+
+.question{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    margin-bottom:28px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.05);
+}
+
+.question h3{
+
+    color:#2e1065;
+
+    margin-bottom:20px;
+
+    line-height:1.7;
+}
+
+.option{
+
+    width:100%;
+
+    border:none;
+
+    margin-bottom:15px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    text-align:left;
+
+    transition:0.3s;
+
+    background:#ede9fe;
+
+    font-family:'Poppins', sans-serif;
+}
+
+.option:hover{
+
+    background:#d8b4fe;
+
+    transform:translateY(-2px);
+}
+
+.correct{
+
+    background:#22c55e !important;
+
+    color:white;
+}
+
+.wrong{
+
+    background:#ef4444 !important;
+
+    color:white;
+}
+
+.result{
+
+    margin-top:12px;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    color:#2e1065;
+}
+
+.score-box{
+
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:white;
+}
+
+.score-box h2{
+
+    font-size:55px;
+
+    color:white;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    background:white;
+    color:black;
+    padding:55px 120px;
+    margin-top:70px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:80px;
+}
+
+.footer h3{
+    margin-bottom:18px;
+    color:#4c1d95;
+    font-size:24px;
+}
+
+.footer p{
+    margin-bottom:10px;
+    color:#444;
+    font-size:17px;
+}
+
+.footer-bottom{
+    background:#f5f5f5;
+    color:black;
+    text-align:center;
+    padding:18px;
+    font-size:16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1100px){
+
+    .title{
+        font-size:70px;
+    }
+
+    .container{
+        padding:30px;
+    }
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        gap:20px;
+    }
+
+    .title{
+        font-size:50px;
+        text-align:center;
+    }
+
+    .subtitle{
+        text-align:center;
+    }
+
+    .footer{
+        padding:40px 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Kontak Kami</a>
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+    <div class="title">
+        LKPD ✨
+    </div>
+
+    <div class="subtitle">
+        Lembar Kerja Peserta Didik Interaktif Perpajakan
+    </div>
+
+    <!-- WRAPPER -->
+
+    <div class="modul-wrapper">
+
+
+
+<div class="quiz-box">
+
+<h2>🧠 Quiz Interaktif ssp 2</h2>
+
+<!-- SOAL 1 -->
+<div class="question">
+<h3>1. Kolom NPWP pada SSP diisi dengan tujuan utama untuk ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. menentukan tarif pajak wajib pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. mengidentifikasi wajib pajak yang melakukan pembayaran
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. menghapus kewajiban pelaporan pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. menghitung jumlah tanggungan keluarga
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. menentukan jenis usaha wajib pajak
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 2 -->
+<div class="question">
+<h3>2. Wajib pajak yang belum memiliki NPWP tetap dapat mengisi SSP dengan cara ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. mengosongkan kolom NPWP sepenuhnya
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. menggunakan kode NPWP sesuai ketentuan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. menggunakan nomor KTP sebagai NPWP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. mengisi nama perusahaan penerima pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. menggunakan nomor rekening bank
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 3 -->
+<div class="question">
+<h3>3. Kolom Masa Pajak pada SSP diberi tanda silang untuk menunjukkan ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. jenis usaha wajib pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. periode pajak yang dibayarkan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. jumlah pembayaran pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. kode akun pajak tertentu
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. lokasi pembayaran pajak
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 4 -->
+<div class="question">
+<h3>4. Jika pembayaran pajak dilakukan untuk lebih dari satu masa pajak, maka ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. cukup memakai satu SSP untuk semua masa
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. harus menggunakan SSP berbeda setiap masa pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. wajib memakai mata uang dolar
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. tidak perlu mengisi kode akun pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. cukup memakai satu NTPN
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 5 -->
+<div class="question">
+<h3>5. Kolom Kode Akun Pajak pada SSP penting karena berfungsi untuk ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. menentukan jumlah tanggungan keluarga
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. mengidentifikasi jenis pajak yang dibayar
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. menghapus kesalahan pembayaran pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. mengubah status wajib pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. menghitung laba perusahaan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 6 -->
+<div class="question">
+<h3>6. Nomor Ketetapan pada SSP diisi apabila pembayaran dilakukan berdasarkan ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. laporan keuangan perusahaan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. surat ketetapan atau surat tagihan pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. permintaan wajib pajak pribadi
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. hasil rapat direksi perusahaan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. rekening koran bank pemerintah
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 7 -->
+<div class="question">
+<h3>7. Pengisian jumlah pembayaran dalam rupiah harus dilakukan secara jelas agar ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. tarif pajak dapat berubah otomatis
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. tidak terjadi kesalahan administrasi pembayaran
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. wajib pajak memperoleh bonus pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. semua transaksi menjadi elektronik
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. NPWP dapat diperbarui otomatis
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 8 -->
+<div class="question">
+<h3>8. Kolom terbilang pada SSP diisi menggunakan huruf Latin dengan tujuan ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. menghindari kesalahan penafsiran nominal
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. mengubah pembayaran menjadi final
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. mengurangi jumlah pembayaran pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. menggantikan fungsi kode akun pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. menghapus kewajiban validasi bank
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 9 -->
+<div class="question">
+<h3>9. Ruang validasi pada SSP berisi NTPN dan NTB/NTP karena ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. menjadi bukti transaksi pembayaran resmi
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. menentukan tarif pajak tahunan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. menghapus kesalahan pengisian SSP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. mengubah jenis pajak secara otomatis
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. menggantikan fungsi NPWP wajib pajak
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 10 -->
+<div class="question">
+<h3>10. Jika wajib pajak salah mengisi kode jenis setoran, maka kemungkinan dampaknya adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. administrasi pembayaran menjadi tidak sesuai
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. jumlah PTKP langsung berubah
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. wajib pajak bebas dari sanksi
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. penghasilan bruto menjadi negatif
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. tarif progresif tidak berlaku
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 11 -->
+<div class="question">
+<h3>11. Kolom alamat objek pajak hanya diisi apabila transaksi berkaitan dengan ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. kendaraan bermotor perusahaan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. tanah dan atau bangunan tertentu
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. barang impor luar negeri
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. transaksi valuta asing
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. penjualan saham perusahaan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 12 -->
+<div class="question">
+<h3>12. Pengisian kode akun pajak berbeda-beda bertujuan untuk ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. menyamakan seluruh jenis pembayaran
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. mempermudah administrasi dan identifikasi pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. menghapus fungsi masa pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. mengurangi jumlah pembayaran
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. mengganti sistem SSE
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 13 -->
+<div class="question">
+<h3>13. Wajib pajak yang tidak mengisi tahun pajak dengan benar dapat menyebabkan ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. kesalahan pencatatan kewajiban pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. penghapusan seluruh pembayaran pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. tarif pajak otomatis turun
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. perubahan status NPWP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. hilangnya kode billing
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 14 -->
+<div class="question">
+<h3>14. Kolom uraian pembayaran perlu diisi sesuai jenis setoran agar ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. semua transaksi memakai tarif sama
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. tujuan pembayaran pajak dapat diketahui jelas
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. jumlah pajak menjadi lebih kecil
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. wajib pajak bebas melapor SPT
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. kode akun pajak tidak digunakan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 15 -->
+<div class="question">
+<h3>15. Petugas penerima pembayaran wajib membubuhkan tanda tangan dan cap karena ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. menentukan tarif pajak wajib pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. menjadi bentuk pengesahan transaksi pembayaran
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. mengurangi jumlah pajak terutang
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. menggantikan fungsi NTPN
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. menentukan jenis usaha wajib pajak
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 16 -->
+<div class="question">
+<h3>16. Jika wajib pajak salah mengisi NPWP pada SSP, maka risiko utamanya adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. data pembayaran tidak tercatat dengan tepat
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. tarif pajak menjadi final
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. jumlah tanggungan keluarga berubah
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. PTKP otomatis meningkat
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. kode akun pajak dihapus
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 17 -->
+<div class="question">
+<h3>17. Kolom wajib pajak atau penyetor harus diisi lengkap agar ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. identitas pihak penyetor dapat dipastikan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. tarif progresif dapat dihapus
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. jumlah pajak menjadi lebih rendah
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. masa pajak berubah otomatis
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. validasi bank tidak diperlukan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 18 -->
+<div class="question">
+<h3>18. Penggunaan mata uang dolar Amerika Serikat dalam SSP hanya berlaku untuk ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. seluruh wajib pajak orang pribadi
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. wajib pajak tertentu sesuai ketentuan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. semua perusahaan perdagangan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. transaksi pajak daerah
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. seluruh pembayaran elektronik
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 19 -->
+<div class="question">
+<h3>19. Pengisian SSP yang tidak teliti dapat menyebabkan ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. hambatan dalam administrasi perpajakan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. penghapusan seluruh sanksi pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. kenaikan penghasilan neto
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. perubahan status tanggungan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. pengurangan biaya jabatan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 20 -->
+<div class="question">
+<h3>20. Inti dari tata cara pengisian SSP adalah memastikan bahwa ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. setiap pembayaran tercatat secara benar dan jelas
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. seluruh wajib pajak membayar jumlah sama
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. tarif pajak dapat diubah sewaktu-waktu
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. NPWP tidak perlu digunakan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. pembayaran pajak selalu dilakukan tunai
+</button>
+
+<div class="result"></div>
+</div>
+
+
+
+<div class="score-box">
+
+<h2 id="score">0</h2>
+
+<p>Skor Kamu</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+    <div class="footer-content">
+
+        <div>
+            <h3>Alamat Sekolah</h3>
+            <p>SMK Negeri 1 Jatirejo</p>
+            <p>Jl. Raya Sumengko Jatirejo, Mojokerto</p>
+            <p>Jawa Timur, Indonesia</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>📘 Facebook: smkn1jatirejo</p>
+            <p>📷 Instagram: smkn1jatirejo</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
+</div>
+
+<script>
+
+let score = 0;
+
+function checkAnswer(button, correct){
+
+    let parent = button.parentElement;
+
+    let options = parent.querySelectorAll('.option');
+
+    let result = parent.querySelector('.result');
+
+    options.forEach(opt => {
+
+        opt.disabled = true;
+
+    });
+
+    if(correct){
+
+        button.classList.add('correct');
+
+        result.innerHTML = "✅ Jawaban Benar";
+
+        score += 5;
+
+    }else{
+
+        button.classList.add('wrong');
+
+        result.innerHTML = "❌ Jawaban Salah";
+
+    }
+
+    document.getElementById('score').innerHTML = score;
+}
+
+</script>
+
+</body>
+</html>

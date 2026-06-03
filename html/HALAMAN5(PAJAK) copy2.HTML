@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LKPD | LUNA EDU</title>
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:white;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    background:
+    linear-gradient(rgba(20,0,60,0.78), rgba(60,0,120,0.88)),
+    url("https://github.com/dimasorange258/testing/blob/main/images/hu%20'.gif?raw=true");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 70px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.menu{
+    display:flex;
+    gap:50px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:300;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#d8b4fe;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:30px 90px 120px;
+    position:relative;
+}
+
+/* ===== TITLE ===== */
+
+.title{
+    position:relative;
+    z-index:2;
+
+    font-size:95px;
+    font-family:'Baloo 2', cursive;
+
+    text-shadow:
+    0 5px 0 #6b21a8,
+    0 12px 25px rgba(0,0,0,0.5);
+
+    margin-top:30px;
+
+    text-align:center;
+}
+
+.subtitle{
+    position:relative;
+    z-index:2;
+
+    font-size:22px;
+    margin-top:10px;
+
+    opacity:0.9;
+
+    text-align:center;
+}
+
+/* ===== WRAPPER ===== */
+
+.modul-wrapper{
+    margin-top:45px;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:40px;
+
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 30px rgba(192,132,252,0.35);
+}
+
+/* ================================= */
+/* QUIZ INTERAKTIF */
+/* ================================= */
+
+.quiz-box{
+
+    background:#f8f5ff;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+}
+
+.quiz-box h2{
+
+    color:#4c1d95;
+
+    margin-bottom:35px;
+
+    font-size:38px;
+
+    text-align:center;
+}
+
+.question{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    margin-bottom:28px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.05);
+}
+
+.question h3{
+
+    color:#2e1065;
+
+    margin-bottom:20px;
+
+    line-height:1.7;
+}
+
+.option{
+
+    width:100%;
+
+    border:none;
+
+    margin-bottom:15px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    text-align:left;
+
+    transition:0.3s;
+
+    background:#ede9fe;
+
+    font-family:'Poppins', sans-serif;
+}
+
+.option:hover{
+
+    background:#d8b4fe;
+
+    transform:translateY(-2px);
+}
+
+.correct{
+
+    background:#22c55e !important;
+
+    color:white;
+}
+
+.wrong{
+
+    background:#ef4444 !important;
+
+    color:white;
+}
+
+.result{
+
+    margin-top:12px;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    color:#2e1065;
+}
+
+.score-box{
+
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:white;
+}
+
+.score-box h2{
+
+    font-size:55px;
+
+    color:white;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    background:white;
+    color:black;
+    padding:55px 120px;
+    margin-top:70px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:80px;
+}
+
+.footer h3{
+    margin-bottom:18px;
+    color:#4c1d95;
+    font-size:24px;
+}
+
+.footer p{
+    margin-bottom:10px;
+    color:#444;
+    font-size:17px;
+}
+
+.footer-bottom{
+    background:#f5f5f5;
+    color:black;
+    text-align:center;
+    padding:18px;
+    font-size:16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1100px){
+
+    .title{
+        font-size:70px;
+    }
+
+    .container{
+        padding:30px;
+    }
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        gap:20px;
+    }
+
+    .title{
+        font-size:50px;
+        text-align:center;
+    }
+
+    .subtitle{
+        text-align:center;
+    }
+
+    .footer{
+        padding:40px 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Kontak Kami</a>
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+    <div class="title">
+        LKPD ✨
+    </div>
+
+    <div class="subtitle">
+        Lembar Kerja Peserta Didik Interaktif Perpajakan
+    </div>
+
+    <!-- WRAPPER -->
+
+    <div class="modul-wrapper">
+
+
+
+<div class="quiz-box">
+
+<h2>🧠 Quiz Interaktif ssp 1</h2>
+
+<!-- SOAL 1 -->
+<div class="question">
+<h3>1. Sebelum melakukan pembayaran pajak melalui SSE, wajib pajak harus memiliki ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. kode objek pajak</button>
+<button class="option" onclick="checkAnswer(this,true)">B. kode billing</button>
+<button class="option" onclick="checkAnswer(this,false)">C. kode perusahaan</button>
+<button class="option" onclick="checkAnswer(this,false)">D. kode NPWP keluarga</button>
+<button class="option" onclick="checkAnswer(this,false)">E. kode transaksi ekspor</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 2 -->
+<div class="question">
+<h3>2. Fungsi utama kode billing dalam SSE adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. menentukan tarif pajak progresif</button>
+<button class="option" onclick="checkAnswer(this,true)">B. menjadi identitas pembayaran pajak elektronik</button>
+<button class="option" onclick="checkAnswer(this,false)">C. menghapus kewajiban pelaporan SPT</button>
+<button class="option" onclick="checkAnswer(this,false)">D. menggantikan fungsi NPWP wajib pajak</button>
+<button class="option" onclick="checkAnswer(this,false)">E. menentukan jumlah tanggungan keluarga</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 3 -->
+<div class="question">
+<h3>3. Sistem SSE dikembangkan terutama untuk ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. menghapus pembayaran pajak manual</button>
+<button class="option" onclick="checkAnswer(this,true)">B. mempermudah proses pembayaran pajak elektronik</button>
+<button class="option" onclick="checkAnswer(this,false)">C. mengurangi jumlah pajak terutang</button>
+<button class="option" onclick="checkAnswer(this,false)">D. menggantikan fungsi kantor pajak</button>
+<button class="option" onclick="checkAnswer(this,false)">E. menurunkan tarif seluruh pajak</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 4 -->
+<div class="question">
+<h3>4. Pada dasarnya, proses SSE terdiri atas dua tahap utama yaitu ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. pendaftaran dan penghapusan NPWP</button>
+<button class="option" onclick="checkAnswer(this,true)">B. pembuatan kode billing dan pembayaran pajak</button>
+<button class="option" onclick="checkAnswer(this,false)">C. pelaporan SPT dan pemeriksaan pajak</button>
+<button class="option" onclick="checkAnswer(this,false)">D. perhitungan laba dan penghasilan bruto</button>
+<button class="option" onclick="checkAnswer(this,false)">E. validasi NPWP dan penghapusan sanksi</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 5 -->
+<div class="question">
+<h3>5. Jika wajib pajak salah memasukkan data saat membuat kode billing, maka ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. data pembayaran dapat menjadi tidak sesuai</button>
+<button class="option" onclick="checkAnswer(this,false)">B. PTKP wajib pajak akan berubah</button>
+<button class="option" onclick="checkAnswer(this,false)">C. tarif pajak progresif dihapus</button>
+<button class="option" onclick="checkAnswer(this,false)">D. penghasilan bruto menjadi nol</button>
+<button class="option" onclick="checkAnswer(this,false)">E. NPWP otomatis diblokir</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 6 -->
+<div class="question">
+<h3>6. Penggunaan SSE memberikan keuntungan utama berupa ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. proses pembayaran pajak lebih praktis</button>
+<button class="option" onclick="checkAnswer(this,false)">B. penghapusan seluruh sanksi administrasi</button>
+<button class="option" onclick="checkAnswer(this,false)">C. kenaikan batas PTKP tahunan</button>
+<button class="option" onclick="checkAnswer(this,false)">D. pengurangan tarif pajak final</button>
+<button class="option" onclick="checkAnswer(this,false)">E. penghapusan kewajiban pembayaran</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 7 -->
+<div class="question">
+<h3>7. Kode billing diterbitkan oleh sistem billing agar ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. pembayaran pajak dapat diidentifikasi dengan tepat</button>
+<button class="option" onclick="checkAnswer(this,false)">B. tarif pajak menjadi lebih kecil</button>
+<button class="option" onclick="checkAnswer(this,false)">C. wajib pajak bebas mengisi NPWP</button>
+<button class="option" onclick="checkAnswer(this,false)">D. masa pajak dapat dihapus</button>
+<button class="option" onclick="checkAnswer(this,false)">E. seluruh pembayaran menjadi tunai</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 8 -->
+<div class="question">
+<h3>8. Perbedaan utama SSE dengan SSP manual adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. SSE dilakukan secara elektronik</button>
+<button class="option" onclick="checkAnswer(this,false)">B. SSE tidak membutuhkan data wajib pajak</button>
+<button class="option" onclick="checkAnswer(this,false)">C. SSE hanya berlaku untuk perusahaan besar</button>
+<button class="option" onclick="checkAnswer(this,false)">D. SSE tidak memerlukan validasi pembayaran</button>
+<button class="option" onclick="checkAnswer(this,false)">E. SSE tidak berkaitan dengan pajak</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 9 -->
+<div class="question">
+<h3>9. Jika wajib pajak tidak memahami prosedur SSE, maka kemungkinan yang terjadi adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. kesalahan dalam proses pembayaran elektronik</button>
+<button class="option" onclick="checkAnswer(this,false)">B. penghasilan bruto meningkat</button>
+<button class="option" onclick="checkAnswer(this,false)">C. PTKP menjadi lebih kecil</button>
+<button class="option" onclick="checkAnswer(this,false)">D. tarif progresif berubah</button>
+<button class="option" onclick="checkAnswer(this,false)">E. penghapusan NPWP otomatis</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 10 -->
+<div class="question">
+<h3>10. SE-11/PJ/2016 dijadikan dasar SSE karena ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. mengatur panduan teknis pembayaran elektronik</button>
+<button class="option" onclick="checkAnswer(this,false)">B. menentukan tarif PPh Pasal 21</button>
+<button class="option" onclick="checkAnswer(this,false)">C. menghapus SSP manual sepenuhnya</button>
+<button class="option" onclick="checkAnswer(this,false)">D. mengatur laporan keuangan perusahaan</button>
+<button class="option" onclick="checkAnswer(this,false)">E. menentukan jumlah tanggungan keluarga</button>
+
+<div class="result"></div>
+</div>
+<!-- SOAL 11 -->
+<div class="question">
+<h3>11. SSE dianggap penting dalam administrasi modern karena ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. mengurangi kebutuhan dokumentasi pembayaran</button>
+<button class="option" onclick="checkAnswer(this,true)">B. mendorong sistem pembayaran pajak lebih efisien</button>
+<button class="option" onclick="checkAnswer(this,false)">C. menghapus kewajiban validasi bank</button>
+<button class="option" onclick="checkAnswer(this,false)">D. menggantikan fungsi seluruh kantor pajak</button>
+<button class="option" onclick="checkAnswer(this,false)">E. menghilangkan penggunaan NPWP</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 12 -->
+<div class="question">
+<h3>12. Seorang wajib pajak tetap perlu mengisi data pembayaran secara benar dalam SSE agar ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. transaksi dapat tercatat sesuai ketentuan</button>
+<button class="option" onclick="checkAnswer(this,false)">B. jumlah pajak menjadi lebih kecil</button>
+<button class="option" onclick="checkAnswer(this,false)">C. tarif pajak dapat dihapus</button>
+<button class="option" onclick="checkAnswer(this,false)">D. penghasilan neto meningkat</button>
+<button class="option" onclick="checkAnswer(this,false)">E. masa pajak tidak berlaku</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 13 -->
+<div class="question">
+<h3>13. Kode billing memiliki peran penting karena tanpa kode tersebut ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. pembayaran elektronik tidak dapat diproses</button>
+<button class="option" onclick="checkAnswer(this,false)">B. PTKP wajib pajak akan hilang</button>
+<button class="option" onclick="checkAnswer(this,false)">C. tarif pajak berubah menjadi final</button>
+<button class="option" onclick="checkAnswer(this,false)">D. seluruh transaksi pajak dibatalkan</button>
+<button class="option" onclick="checkAnswer(this,false)">E. kode akun pajak tidak diperlukan</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 14 -->
+<div class="question">
+<h3>14. Salah satu tujuan penerapan SSE adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. mengurangi penggunaan sistem elektronik</button>
+<button class="option" onclick="checkAnswer(this,true)">B. mempermudah wajib pajak dalam pembayaran</button>
+<button class="option" onclick="checkAnswer(this,false)">C. menghapus administrasi perpajakan</button>
+<button class="option" onclick="checkAnswer(this,false)">D. menghilangkan kewajiban pelaporan</button>
+<button class="option" onclick="checkAnswer(this,false)">E. mengganti fungsi bukti pembayaran</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 15 -->
+<div class="question">
+<h3>15. Pembayaran pajak menggunakan SSE tetap membutuhkan validasi karena ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. setiap transaksi harus dapat dibuktikan secara resmi</button>
+<button class="option" onclick="checkAnswer(this,false)">B. tarif pajak harus dihitung ulang</button>
+<button class="option" onclick="checkAnswer(this,false)">C. NPWP wajib pajak dapat dihapus</button>
+<button class="option" onclick="checkAnswer(this,false)">D. masa pajak harus diubah</button>
+<button class="option" onclick="checkAnswer(this,false)">E. jumlah pembayaran harus sama</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 16 -->
+<div class="question">
+<h3>16. Penggunaan teknologi dalam SSE menunjukkan bahwa administrasi pajak ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. berusaha meningkatkan efisiensi layanan</button>
+<button class="option" onclick="checkAnswer(this,false)">B. menghapus kewajiban wajib pajak</button>
+<button class="option" onclick="checkAnswer(this,false)">C. mengurangi seluruh tarif pajak</button>
+<button class="option" onclick="checkAnswer(this,false)">D. menghilangkan fungsi SSP</button>
+<button class="option" onclick="checkAnswer(this,false)">E. membatasi pembayaran elektronik</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 17 -->
+<div class="question">
+<h3>17. Jika kode billing digunakan untuk transaksi yang salah, maka ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. pembayaran dapat tercatat tidak sesuai</button>
+<button class="option" onclick="checkAnswer(this,false)">B. PTKP langsung meningkat</button>
+<button class="option" onclick="checkAnswer(this,false)">C. wajib pajak bebas sanksi</button>
+<button class="option" onclick="checkAnswer(this,false)">D. penghasilan bruto menjadi final</button>
+<button class="option" onclick="checkAnswer(this,false)">E. masa pajak otomatis berubah</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 18 -->
+<div class="question">
+<h3>18. SSE membantu pemerintah terutama dalam ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. mengurangi penerimaan negara</button>
+<button class="option" onclick="checkAnswer(this,true)">B. mempercepat administrasi pembayaran pajak</button>
+<button class="option" onclick="checkAnswer(this,false)">C. menghapus seluruh dokumen perpajakan</button>
+<button class="option" onclick="checkAnswer(this,false)">D. mengurangi jumlah wajib pajak</button>
+<button class="option" onclick="checkAnswer(this,false)">E. mengganti sistem pelaporan SPT</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 19 -->
+<div class="question">
+<h3>19. Perbedaan mendasar antara SSP manual dan SSE terletak pada ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. cara proses pembayaran pajak dilakukan</button>
+<button class="option" onclick="checkAnswer(this,false)">B. jumlah pajak yang harus dibayar</button>
+<button class="option" onclick="checkAnswer(this,false)">C. jenis NPWP yang digunakan</button>
+<button class="option" onclick="checkAnswer(this,false)">D. besarnya tarif pajak progresif</button>
+<button class="option" onclick="checkAnswer(this,false)">E. jumlah masa pajak yang dipilih</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 20 -->
+<div class="question">
+<h3>20. Inti dari penerapan SSE dalam perpajakan adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. menciptakan sistem pembayaran pajak yang lebih efektif</button>
+<button class="option" onclick="checkAnswer(this,false)">B. menghapus seluruh bukti pembayaran pajak</button>
+<button class="option" onclick="checkAnswer(this,false)">C. mengurangi kewajiban wajib pajak pribadi</button>
+<button class="option" onclick="checkAnswer(this,false)">D. menghilangkan fungsi administrasi pajak</button>
+<button class="option" onclick="checkAnswer(this,false)">E. menurunkan tarif pajak seluruh wajib pajak</button>
+
+<div class="result"></div>
+</div>
+
+
+<div class="score-box">
+
+<h2 id="score">0</h2>
+
+<p>Skor Kamu</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+    <div class="footer-content">
+
+        <div>
+            <h3>Alamat Sekolah</h3>
+            <p>SMK Negeri 1 Jatirejo</p>
+            <p>Jl. Raya Sumengko Jatirejo, Mojokerto</p>
+            <p>Jawa Timur, Indonesia</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>📘 Facebook: smkn1jatirejo</p>
+            <p>📷 Instagram: smkn1jatirejo</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
+</div>
+
+<script>
+
+let score = 0;
+
+function checkAnswer(button, correct){
+
+    let parent = button.parentElement;
+
+    let options = parent.querySelectorAll('.option');
+
+    let result = parent.querySelector('.result');
+
+    options.forEach(opt => {
+
+        opt.disabled = true;
+
+    });
+
+    if(correct){
+
+        button.classList.add('correct');
+
+        result.innerHTML = "✅ Jawaban Benar";
+
+        score += 5;
+
+    }else{
+
+        button.classList.add('wrong');
+
+        result.innerHTML = "❌ Jawaban Salah";
+
+    }
+
+    document.getElementById('score').innerHTML = score;
+}
+
+</script>
+
+</body>
+</html>

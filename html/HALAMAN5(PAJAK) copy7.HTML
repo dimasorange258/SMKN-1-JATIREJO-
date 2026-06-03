@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LKPD | LUNA EDU</title>
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:white;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    background:
+    linear-gradient(rgba(20,0,60,0.78), rgba(60,0,120,0.88)),
+    url("https://github.com/dimasorange258/testing/blob/main/images/hu%20'.gif?raw=true");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 70px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.menu{
+    display:flex;
+    gap:50px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:300;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#d8b4fe;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:30px 90px 120px;
+    position:relative;
+}
+
+/* ===== TITLE ===== */
+
+.title{
+    position:relative;
+    z-index:2;
+
+    font-size:95px;
+    font-family:'Baloo 2', cursive;
+
+    text-shadow:
+    0 5px 0 #6b21a8,
+    0 12px 25px rgba(0,0,0,0.5);
+
+    margin-top:30px;
+
+    text-align:center;
+}
+
+.subtitle{
+    position:relative;
+    z-index:2;
+
+    font-size:22px;
+    margin-top:10px;
+
+    opacity:0.9;
+
+    text-align:center;
+}
+
+/* ===== WRAPPER ===== */
+
+.modul-wrapper{
+    margin-top:45px;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:40px;
+
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 30px rgba(192,132,252,0.35);
+}
+
+/* ================================= */
+/* QUIZ INTERAKTIF */
+/* ================================= */
+
+.quiz-box{
+
+    background:#f8f5ff;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+}
+
+.quiz-box h2{
+
+    color:#4c1d95;
+
+    margin-bottom:35px;
+
+    font-size:38px;
+
+    text-align:center;
+}
+
+.question{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    margin-bottom:28px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.05);
+}
+
+.question h3{
+
+    color:#2e1065;
+
+    margin-bottom:20px;
+
+    line-height:1.7;
+}
+
+.option{
+
+    width:100%;
+
+    border:none;
+
+    margin-bottom:15px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    text-align:left;
+
+    transition:0.3s;
+
+    background:#ede9fe;
+
+    font-family:'Poppins', sans-serif;
+}
+
+.option:hover{
+
+    background:#d8b4fe;
+
+    transform:translateY(-2px);
+}
+
+.correct{
+
+    background:#22c55e !important;
+
+    color:white;
+}
+
+.wrong{
+
+    background:#ef4444 !important;
+
+    color:white;
+}
+
+.result{
+
+    margin-top:12px;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    color:#2e1065;
+}
+
+.score-box{
+
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:white;
+}
+
+.score-box h2{
+
+    font-size:55px;
+
+    color:white;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    background:white;
+    color:black;
+    padding:55px 120px;
+    margin-top:70px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:80px;
+}
+
+.footer h3{
+    margin-bottom:18px;
+    color:#4c1d95;
+    font-size:24px;
+}
+
+.footer p{
+    margin-bottom:10px;
+    color:#444;
+    font-size:17px;
+}
+
+.footer-bottom{
+    background:#f5f5f5;
+    color:black;
+    text-align:center;
+    padding:18px;
+    font-size:16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1100px){
+
+    .title{
+        font-size:70px;
+    }
+
+    .container{
+        padding:30px;
+    }
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        gap:20px;
+    }
+
+    .title{
+        font-size:50px;
+        text-align:center;
+    }
+
+    .subtitle{
+        text-align:center;
+    }
+
+    .footer{
+        padding:40px 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Kontak Kami</a>
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+    <div class="title">
+        LKPD ✨
+    </div>
+
+    <div class="subtitle">
+        Lembar Kerja Peserta Didik Interaktif Perpajakan
+    </div>
+
+    <!-- WRAPPER -->
+
+    <div class="modul-wrapper">
+
+
+
+<div class="quiz-box">
+
+<h2>🧠 Quiz Interaktif LKPD SPT</h2>
+
+<!-- SOAL 1 -->
+<div class="question">
+<h3>1. Seorang dokter spesialis memberikan pelayanan di rumah sakit tanpa kontrak kerja tetap. Dokter tersebut menerima jasa medis setiap bulan. Status dokter ini dalam perpajakan disebut...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pegawai tetap perusahaan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. bukan pegawai yang menerima imbalan atas pekerjaan bebas
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. tenaga kerja harian lepas
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. peserta program pensiun dini
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. anggota dewan komisaris independen
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 2 -->
+<div class="question">
+<h3>2. Perbedaan mendasar antara pegawai tetap dan bukan pegawai dalam pemotongan PPh Pasal 21 terletak pada...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. besaran tarif pajak yang dikenakan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. perhitungan penghasilan neto dan adanya biaya jabatan atau biaya pensiun
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. kewajiban memiliki NPWP sebelum dipotong
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. jenis formulir SPT Tahunan yang digunakan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. tempat pelaporan SPT Masa pemberi kerja
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 3 -->
+<div class="question">
+<h3>3. Seorang arsitek menerima honorarium dari PT Bangun Jaya untuk pembuatan desain gedung. PT Bangun Jaya wajib memotong PPh Pasal 21 dengan dasar pengenaan...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. 50% dari penghasilan bruto jika arsitek memiliki NPWP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. 100% dari penghasilan bruto tanpa pengurangan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. 50% dari penghasilan bruto untuk bukan pegawai yang tidak bersifat berkesinambungan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. 50% dari penghasilan neto setelah dikurangi PTKP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. 100% dari penghasilan neto hasil pembukuan sendiri
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 4 -->
+<div class="question">
+<h3>4. Seorang konsultan manajemen menerima pembayaran dari tiga perusahaan berbeda dalam satu bulan. Konsultan tersebut dikategorikan sebagai bukan pegawai yang menerima penghasilan...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. bersifat final dan tidak dapat dikreditkan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. berkesinambungan karena dari beberapa pemberi kerja
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. tidak berkesinambungan karena setiap perusahaan membayar terpisah
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. tidak kena pajak karena di bawah PTKP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. final karena termasuk jasa profesional tertentu
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 5 -->
+<div class="question">
+<h3>5. Perhitungan PPh Pasal 21 untuk bukan pegawai yang menerima penghasilan bersifat berkesinambungan didasarkan pada...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. jumlah bruto setiap pembayaran tanpa akumulasi
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. akumulasi penghasilan bruto dalam satu tahun kalender dikurangi PTKP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. 50% dari jumlah bruto setiap bulan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. tarif progresif langsung tanpa norma penghitungan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. 5% dari omset tahunan tanpa batasan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 6 -->
+<div class="question">
+<h3>6. Seorang pengacara menerima jasa hukum senilai Rp100 juta dari PT Maju Mundur. Pengacara tidak memiliki NPWP. Besar pemotongan PPh Pasal 21 oleh PT Maju Mundur adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. 5% x 50% x Rp100 juta
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. 20% lebih tinggi dari tarif normal
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. 5% x Rp100 juta
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. 15% x 50% x Rp100 juta
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. 30% x Rp100 juta
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 7 -->
+<div class="question">
+<h3>7. Manakah yang termasuk contoh bukan pegawai yang menerima penghasilan tidak berkesinambungan?</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. Dosen tetap universitas yang mengajar setiap semester
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. Artis yang mengisi acara di stasiun TV berbeda setiap bulan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. Pengacara yang menangani satu kasus dan selesai dalam dua bulan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. Dokter yang praktik rutin di rumah sakit setiap hari
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. Notaris yang memiliki kantor tetap dengan karyawan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 8 -->
+<div class="question">
+<h3>8. Seorang peneliti menerima honorarium satu kali dari lembaga pemerintah untuk studi kelayakan proyek. PPh Pasal 21 dihitung dengan cara...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. 5% x 50% x penghasilan bruto (tanpa akumulasi)
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. 5% x penghasilan bruto setelah dikurangi biaya jabatan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. 15% x 50% x penghasilan bruto
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+D. tarif Pasal 17 x (50% x penghasilan bruto)
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. tarif Pasal 17 x penghasilan bruto
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 9 -->
+<div class="question">
+<h3>9. Perbedaan perlakuan biaya jabatan antara pegawai tetap dan bukan pegawai adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. bukan pegawai tidak mendapat biaya jabatan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. bukan pegawai mendapat biaya jabatan 5% tanpa batasan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. pegawai tetap mendapat biaya jabatan maksimal Rp6 juta/tahun
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. bukan pegawai mendapat biaya jabatan 10% dari bruto
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. keduanya mendapat biaya jabatan dengan persentase sama
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 10 -->
+<div class="question">
+<h3>10. Seorang ahli IT mengerjakan proyek pembuatan aplikasi selama 4 bulan dengan pembayaran bertahap. Status bukan pegawai ini termasuk...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. berkesinambungan karena lebih dari satu bulan dan dari satu pemberi kerja
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. tidak berkesinambungan karena tidak ada ikatan kerja tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. pegawai tidak tetap karena durasi lebih dari 3 bulan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. pekerja lepas harian
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. peserta program pensiun
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 11 -->
+<div class="question">
+<h3>11. Dalam formulir bukti potong 1721-VI untuk bukan pegawai, kolom yang wajib diisi oleh pemberi kerja adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. NPWP ahli waris
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. jumlah tanggungan keluarga bukan pegawai
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. penghasilan bruto, tarif, dan PPh dipotong
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. status perkawinan dan anak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. alamat kantor notaris
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 12 -->
+<div class="question">
+<h3>12. Seorang notaris menerima penghasilan dari 5 klien berbeda dalam setahun. Notaris tersebut termasuk bukan pegawai dengan penghasilan...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. berkesinambungan dari satu pemberi kerja
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. tidak berkesinambungan karena setiap klien membayar terpisah
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. berkesinambungan karena jumlah klien lebih dari satu
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. final karena profesi notaris dikenakan pajak final
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. tidak perlu dilaporkan dalam SPT Tahunan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 13 -->
+<div class="question">
+<h3>13. Dasar hukum pemotongan PPh Pasal 21 untuk bukan pegawai diatur dalam...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. Peraturan Pemerintah tentang PPN
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. Peraturan Direktur Jenderal Pajak mengenai norma penghitungan khusus
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. Undang-Undang KUP dan Peraturan Menteri Keuangan terkait PPh Pasal 21
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. Peraturan Daerah tentang pajak reklame
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. Keputusan Menteri Tenaga Kerja
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 14 -->
+<div class="question">
+<h3>14. Seorang konsultan pajak menerima fee Rp200 juta dari PT ABC. Konsultan memiliki NPWP. Hitungan PPh Pasal 21 yang dipotong PT ABC adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. tarif 5% x 50% x Rp200 juta
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. tarif progresif Pasal 17 x 50% x Rp200 juta
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. tarif progresif Pasal 17 x Rp200 juta
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. 15% x Rp200 juta
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. 5% x Rp200 juta
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 15 -->
+<div class="question">
+<h3>15. Jika bukan pegawai tidak memiliki NPWP, maka tarif yang dikenakan atas penghasilan bruto adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. 20% lebih tinggi dari tarif normal
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. 50% lebih tinggi dari tarif normal
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. 100% lebih tinggi dari tarif normal
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. tetap sama dengan yang memiliki NPWP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. dikenakan final 2%
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 16 -->
+<div class="question">
+<h3>16. Seorang penyanyi menerima honor dari 3 stasiun TV berbeda dalam satu bulan. Masing-masing stasiun TV dalam memotong PPh Pasal 21 harus memperlakukan penyanyi sebagai...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pegawai tetap masing-masing stasiun
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. bukan pegawai dengan penghasilan tidak berkesinambungan di setiap pemotongan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. bukan pegawai berkesinambungan karena total lebih dari satu pemberi kerja
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. wajib pajak badan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. peserta kegiatan lepas tanpa kewajiban potong
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 17 -->
+<div class="question">
+<h3>17. Kewajiban pelaporan bagi pemberi kerja yang memotong PPh Pasal 21 bukan pegawai adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. membuat bukti potong dan melaporkan dalam SPT Masa PPh Pasal 21
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. hanya melaporkan dalam SPT Tahunan sendiri
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. tidak perlu lapor jika honor di bawah Rp5 juta
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. melaporkan ke notaris setempat
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. mengirimkan langsung ke KPP tanpa bukti potong
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 18 -->
+<div class="question">
+<h3>18. Perlakuan berbeda antara bukan pegawai berkesinambungan dan tidak berkesinambungan dalam SPT Tahunan Wajib Pajak orang pribadi adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. penghasilan berkesinambungan digabung dengan penghasilan pegawai tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. penghasilan tidak berkesinambungan dilaporkan sebagai penghasilan final
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. keduanya dilaporkan sama sebagai penghasilan dalam negeri lainnya
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. berkesinambungan wajib dilampiri laporan keuangan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. tidak berkesinambungan tidak perlu dilaporkan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 19 -->
+<div class="question">
+<h3>19. Seorang YouTuber menerima pembayaran iklan dari beberapa brand secara rutin setiap bulan. Dalam konteks PPh Pasal 21, YouTuber tersebut dikategorikan sebagai...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pegawai tetap dari platform YouTube
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. bukan pegawai yang menerima penghasilan berkesinambungan dari beberapa pemberi kerja
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. pekerja bebas yang wajib menyetor sendiri PPh Pasal 25
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. badan usaha karena omzet di atas Rp4,8 miliar
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. peserta program pengampunan pajak
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 20 -->
+<div class="question">
+<h3>20. Sanksi bagi pemberi kerja yang tidak memotong PPh Pasal 21 atas honor bukan pegawai adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. dikenakan denda 2% per bulan dari pajak yang tidak dipotong
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. wajib membayar sendiri pajak yang seharusnya dipotong
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. tidak ada sanksi karena bukan pegawai wajib setor sendiri
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. hanya dikenakan sanksi administratif berupa teguran
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. NPWP pemberi kerja diblokir sementara
+</button>
+
+<div class="result"></div>
+</div>
+
+
+<div class="score-box">
+
+<h2 id="score">0</h2>
+
+<p>Skor Kamu</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+    <div class="footer-content">
+
+        <div>
+            <h3>Alamat Sekolah</h3>
+            <p>SMK Negeri 1 Jatirejo</p>
+            <p>Jl. Raya Sumengko Jatirejo, Mojokerto</p>
+            <p>Jawa Timur, Indonesia</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>📘 Facebook: smkn1jatirejo</p>
+            <p>📷 Instagram: smkn1jatirejo</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
+</div>
+
+<script>
+
+let score = 0;
+
+function checkAnswer(button, correct){
+
+    let parent = button.parentElement;
+
+    let options = parent.querySelectorAll('.option');
+
+    let result = parent.querySelector('.result');
+
+    options.forEach(opt => {
+
+        opt.disabled = true;
+
+    });
+
+    if(correct){
+
+        button.classList.add('correct');
+
+        result.innerHTML = "✅ Jawaban Benar";
+
+        score += 5;
+
+    }else{
+
+        button.classList.add('wrong');
+
+        result.innerHTML = "❌ Jawaban Salah";
+
+    }
+
+    document.getElementById('score').innerHTML = score;
+}
+
+</script>
+
+</body>
+</html>

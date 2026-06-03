@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LKPD | LUNA EDU</title>
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:white;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    background:
+    linear-gradient(rgba(20,0,60,0.78), rgba(60,0,120,0.88)),
+    url("https://github.com/dimasorange258/testing/blob/main/images/hu%20'.gif?raw=true");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 70px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.menu{
+    display:flex;
+    gap:50px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:300;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#d8b4fe;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:30px 90px 120px;
+    position:relative;
+}
+
+/* ===== TITLE ===== */
+
+.title{
+    position:relative;
+    z-index:2;
+
+    font-size:95px;
+    font-family:'Baloo 2', cursive;
+
+    text-shadow:
+    0 5px 0 #6b21a8,
+    0 12px 25px rgba(0,0,0,0.5);
+
+    margin-top:30px;
+
+    text-align:center;
+}
+
+.subtitle{
+    position:relative;
+    z-index:2;
+
+    font-size:22px;
+    margin-top:10px;
+
+    opacity:0.9;
+
+    text-align:center;
+}
+
+/* ===== WRAPPER ===== */
+
+.modul-wrapper{
+    margin-top:45px;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:40px;
+
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 30px rgba(192,132,252,0.35);
+}
+
+/* ================================= */
+/* QUIZ INTERAKTIF */
+/* ================================= */
+
+.quiz-box{
+
+    background:#f8f5ff;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+}
+
+.quiz-box h2{
+
+    color:#4c1d95;
+
+    margin-bottom:35px;
+
+    font-size:38px;
+
+    text-align:center;
+}
+
+.question{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    margin-bottom:28px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.05);
+}
+
+.question h3{
+
+    color:#2e1065;
+
+    margin-bottom:20px;
+
+    line-height:1.7;
+}
+
+.option{
+
+    width:100%;
+
+    border:none;
+
+    margin-bottom:15px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    text-align:left;
+
+    transition:0.3s;
+
+    background:#ede9fe;
+
+    font-family:'Poppins', sans-serif;
+}
+
+.option:hover{
+
+    background:#d8b4fe;
+
+    transform:translateY(-2px);
+}
+
+.correct{
+
+    background:#22c55e !important;
+
+    color:white;
+}
+
+.wrong{
+
+    background:#ef4444 !important;
+
+    color:white;
+}
+
+.result{
+
+    margin-top:12px;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    color:#2e1065;
+}
+
+.score-box{
+
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:white;
+}
+
+.score-box h2{
+
+    font-size:55px;
+
+    color:white;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    background:white;
+    color:black;
+    padding:55px 120px;
+    margin-top:70px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:80px;
+}
+
+.footer h3{
+    margin-bottom:18px;
+    color:#4c1d95;
+    font-size:24px;
+}
+
+.footer p{
+    margin-bottom:10px;
+    color:#444;
+    font-size:17px;
+}
+
+.footer-bottom{
+    background:#f5f5f5;
+    color:black;
+    text-align:center;
+    padding:18px;
+    font-size:16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1100px){
+
+    .title{
+        font-size:70px;
+    }
+
+    .container{
+        padding:30px;
+    }
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        gap:20px;
+    }
+
+    .title{
+        font-size:50px;
+        text-align:center;
+    }
+
+    .subtitle{
+        text-align:center;
+    }
+
+    .footer{
+        padding:40px 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Kontak Kami</a>
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+    <div class="title">
+        LKPD ✨
+    </div>
+
+    <div class="subtitle">
+        Lembar Kerja Peserta Didik Interaktif dasar dasar akuntansi
+    </div>
+
+    <!-- WRAPPER -->
+
+    <div class="modul-wrapper">
+
+
+
+<div class="quiz-box">
+
+<h2>🧠 Quiz Interaktif LKPD SPT</h2>
+
+<!-- SOAL 1 -->
+<div class="question">
+<h3>1. Seorang pekerja bengkel terpapar kebisingan mesin lebih dari 85 dB setiap hari selama 8 jam kerja. Jenis bahaya yang dihadapi pekerja tersebut adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Bahaya kimia</button>
+<button class="option" onclick="checkAnswer(this,true)">B. Bahaya fisik</button>
+<button class="option" onclick="checkAnswer(this,false)">C. Bahaya biologi</button>
+<button class="option" onclick="checkAnswer(this,false)">D. Bahaya ergonomi</button>
+<button class="option" onclick="checkAnswer(this,false)">E. Bahaya psikologi</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 2 -->
+<div class="question">
+<h3>2. Hierarki pengendalian risiko yang paling efektif adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. APD (Alat Pelindung Diri)</button>
+<button class="option" onclick="checkAnswer(this,false)">B. Rekayasa teknik (Engineering Control)</button>
+<button class="option" onclick="checkAnswer(this,true)">C. Eliminasi sumber bahaya</button>
+<button class="option" onclick="checkAnswer(this,false)">D. Pengendalian administratif</button>
+<button class="option" onclick="checkAnswer(this,false)">E. Substitusi bahan berbahaya</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 3 -->
+<div class="question">
+<h3>3. Dokumen yang digunakan untuk mengidentifikasi dan menilai risiko secara sistematis di tempat kerja disebut...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. Job Safety Analysis (JSA) / HIRARC</button>
+<button class="option" onclick="checkAnswer(this,false)">B. Standard Operating Procedure (SOP)</button>
+<button class="option" onclick="checkAnswer(this,false)">C. Work Permit</button>
+<button class="option" onclick="checkAnswer(this,false)">D. Incident Report</button>
+<button class="option" onclick="checkAnswer(this,false)">E. Emergency Response Plan</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 4 -->
+<div class="question">
+<h3>4. Pekerja mengangkat beban 30 kg setiap 5 menit selama 8 jam kerja. Penyakit akibat kerja yang paling mungkin terjadi adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Silikosis</button>
+<button class="option" onclick="checkAnswer(this,false)">B. Dermatitis kontak</button>
+<button class="option" onclick="checkAnswer(this,true)">C. Gangguan muskuloskeletal (MSDs)</button>
+<button class="option" onclick="checkAnswer(this,false)">D. Keracunan timbal</button>
+<button class="option" onclick="checkAnswer(this,false)">E. Gangguan pendengaran</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 5 -->
+<div class="question">
+<h3>5. Matriks risiko digunakan untuk menentukan tingkat risiko. Jika kemungkinan (likelihood) terjadinya bahaya adalah 'sangat mungkin' dan keparahan (severity)-nya 'parah', maka tingkat risikonya adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Risiko rendah – tidak perlu tindakan</button>
+<button class="option" onclick="checkAnswer(this,false)">B. Risiko sedang – tindakan terencana</button>
+<button class="option" onclick="checkAnswer(this,false)">C. Risiko tinggi – tindakan segera diperlukan</button>
+<button class="option" onclick="checkAnswer(this,true)">D. Risiko ekstrem – hentikan pekerjaan</button>
+<button class="option" onclick="checkAnswer(this,false)">E. Risiko dapat diterima</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 6 -->
+<div class="question">
+<h3>6. Yang termasuk bahaya kimia di laboratorium sekolah adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Pencahayaan ruangan yang terlalu terang</button>
+<button class="option" onclick="checkAnswer(this,false)">B. Kursi laboratorium yang terlalu tinggi</button>
+<button class="option" onclick="checkAnswer(this,true)">C. Tumpahan asam sulfat (H₂SO₄) di meja kerja</button>
+<button class="option" onclick="checkAnswer(this,false)">D. Suara alat vakum yang bising</button>
+<button class="option" onclick="checkAnswer(this,false)">E. Konflik antar siswa saat praktikum</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 7 -->
+<div class="question">
+<h3>7. Teknik HIRARC dalam K3 merupakan singkatan dari...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. Hazard Identification, Risk Assessment, and Risk Control</button>
+<button class="option" onclick="checkAnswer(this,false)">B. Health Inspection, Risk Analysis, and Risk Communication</button>
+<button class="option" onclick="checkAnswer(this,false)">C. Hazard Investigation, Response, and Corrective Action</button>
+<button class="option" onclick="checkAnswer(this,false)">D. Health Indicators, Risk Assessment, and Reporting Criteria</button>
+<button class="option" onclick="checkAnswer(this,false)">E. Hazard Identification, Reporting, and Accident Control</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 8 -->
+<div class="question">
+<h3>8. Pernyataan yang paling tepat mengenai perbedaan 'bahaya' (hazard) dan 'risiko' (risk) adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Bahaya dan risiko adalah hal yang sama dalam K3</button>
+<button class="option" onclick="checkAnswer(this,true)">B. Bahaya adalah potensi penyebab kerugian; risiko adalah kemungkinan kerugian terjadi</button>
+<button class="option" onclick="checkAnswer(this,false)">C. Risiko adalah sumber bahaya; bahaya adalah dampaknya</button>
+<button class="option" onclick="checkAnswer(this,false)">D. Bahaya hanya terkait fisik; risiko hanya terkait mental</button>
+<button class="option" onclick="checkAnswer(this,false)">E. Risiko lebih berbahaya daripada bahaya itu sendiri</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 9 -->
+<div class="question">
+<h3>9. Sebuah pabrik mengganti bahan kimia berbahaya (toluene) dengan bahan yang lebih aman (air). Tindakan ini termasuk dalam pengendalian risiko jenis...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Eliminasi</button>
+<button class="option" onclick="checkAnswer(this,true)">B. Substitusi</button>
+<button class="option" onclick="checkAnswer(this,false)">C. Rekayasa teknik</button>
+<button class="option" onclick="checkAnswer(this,false)">D. Administratif</button>
+<button class="option" onclick="checkAnswer(this,false)">E. APD</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 10 -->
+<div class="question">
+<h3>10. Alat yang digunakan untuk mengukur tingkat kebisingan di tempat kerja adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Luxmeter</button>
+<button class="option" onclick="checkAnswer(this,false)">B. Thermometer</button>
+<button class="option" onclick="checkAnswer(this,true)">C. Sound Level Meter (SLM)</button>
+<button class="option" onclick="checkAnswer(this,false)">D. Anemometer</button>
+<button class="option" onclick="checkAnswer(this,false)">E. Barometer</button>
+
+<div class="result"></div>
+</div>
+<div class="score-box">
+
+<h2 id="score">0</h2>
+
+<p>Skor Kamu</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+    <div class="footer-content">
+
+        <div>
+            <h3>Alamat Sekolah</h3>
+            <p>SMK Negeri 1 Jatirejo</p>
+            <p>Jl. Raya Sumengko Jatirejo, Mojokerto</p>
+            <p>Jawa Timur, Indonesia</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>📘 Facebook: smkn1jatirejo</p>
+            <p>📷 Instagram: smkn1jatirejo</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
+</div>
+
+<script>
+
+let score = 0;
+
+function checkAnswer(button, correct){
+
+    let parent = button.parentElement;
+
+    let options = parent.querySelectorAll('.option');
+
+    let result = parent.querySelector('.result');
+
+    options.forEach(opt => {
+
+        opt.disabled = true;
+
+    });
+
+    if(correct){
+
+        button.classList.add('correct');
+
+        result.innerHTML = "✅ Jawaban Benar";
+
+        score += 10;
+
+    }else{
+
+        button.classList.add('wrong');
+
+        result.innerHTML = "❌ Jawaban Salah";
+
+    }
+
+    document.getElementById('score').innerHTML = score;
+}
+
+</script>
+
+</body>
+</html>

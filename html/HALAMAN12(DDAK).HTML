@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LKPD | LUNA EDU</title>
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:white;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    background:
+    linear-gradient(rgba(20,0,60,0.78), rgba(60,0,120,0.88)),
+    url("https://github.com/dimasorange258/testing/blob/main/images/hu%20'.gif?raw=true");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 70px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.menu{
+    display:flex;
+    gap:50px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:300;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#d8b4fe;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:30px 90px 120px;
+    position:relative;
+}
+
+/* ===== TITLE ===== */
+
+.title{
+    position:relative;
+    z-index:2;
+
+    font-size:95px;
+    font-family:'Baloo 2', cursive;
+
+    text-shadow:
+    0 5px 0 #6b21a8,
+    0 12px 25px rgba(0,0,0,0.5);
+
+    margin-top:30px;
+
+    text-align:center;
+}
+
+.subtitle{
+    position:relative;
+    z-index:2;
+
+    font-size:22px;
+    margin-top:10px;
+
+    opacity:0.9;
+
+    text-align:center;
+}
+
+/* ===== WRAPPER ===== */
+
+.modul-wrapper{
+    margin-top:45px;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:40px;
+
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 30px rgba(192,132,252,0.35);
+}
+
+/* ================================= */
+/* QUIZ INTERAKTIF */
+/* ================================= */
+
+.quiz-box{
+
+    background:#f8f5ff;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+}
+
+.quiz-box h2{
+
+    color:#4c1d95;
+
+    margin-bottom:35px;
+
+    font-size:38px;
+
+    text-align:center;
+}
+
+.question{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    margin-bottom:28px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.05);
+}
+
+.question h3{
+
+    color:#2e1065;
+
+    margin-bottom:20px;
+
+    line-height:1.7;
+}
+
+.option{
+
+    width:100%;
+
+    border:none;
+
+    margin-bottom:15px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    text-align:left;
+
+    transition:0.3s;
+
+    background:#ede9fe;
+
+    font-family:'Poppins', sans-serif;
+}
+
+.option:hover{
+
+    background:#d8b4fe;
+
+    transform:translateY(-2px);
+}
+
+.correct{
+
+    background:#22c55e !important;
+
+    color:white;
+}
+
+.wrong{
+
+    background:#ef4444 !important;
+
+    color:white;
+}
+
+.result{
+
+    margin-top:12px;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    color:#2e1065;
+}
+
+.score-box{
+
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:white;
+}
+
+.score-box h2{
+
+    font-size:55px;
+
+    color:white;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    background:white;
+    color:black;
+    padding:55px 120px;
+    margin-top:70px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:80px;
+}
+
+.footer h3{
+    margin-bottom:18px;
+    color:#4c1d95;
+    font-size:24px;
+}
+
+.footer p{
+    margin-bottom:10px;
+    color:#444;
+    font-size:17px;
+}
+
+.footer-bottom{
+    background:#f5f5f5;
+    color:black;
+    text-align:center;
+    padding:18px;
+    font-size:16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1100px){
+
+    .title{
+        font-size:70px;
+    }
+
+    .container{
+        padding:30px;
+    }
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        gap:20px;
+    }
+
+    .title{
+        font-size:50px;
+        text-align:center;
+    }
+
+    .subtitle{
+        text-align:center;
+    }
+
+    .footer{
+        padding:40px 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Kontak Kami</a>
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+    <div class="title">
+        LKPD ✨
+    </div>
+
+    <div class="subtitle">
+        Lembar Kerja Peserta Didik Interaktif dasar dasar akuntansi
+    </div>
+
+    <!-- WRAPPER -->
+
+    <div class="modul-wrapper">
+
+
+
+<div class="quiz-box">
+
+<h2>🧠 Quiz Interaktif LKPD SPT</h2>
+
+<<!-- SOAL 1 -->
+<div class="question">
+<h3>1. Undang-Undang yang menjadi dasar hukum utama K3 di Indonesia adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. UU No. 13 Tahun 2003 tentang Ketenagakerjaan</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. UU No. 1 Tahun 1970 tentang Keselamatan Kerja</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. UU No. 36 Tahun 2009 tentang Kesehatan</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. PP No. 50 Tahun 2012 tentang SMK3</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Permenaker No. 8 Tahun 2020</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 2 -->
+<div class="question">
+<h3>2. Berikut ini yang BUKAN merupakan tujuan dari penerapan K3 adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Melindungi keselamatan tenaga kerja</button>
+
+<button class="option" onclick="checkAnswer(this,false)">B. Menjamin keselamatan orang lain di tempat kerja</button>
+
+<button class="option" onclick="checkAnswer(this,true)">C. Meningkatkan produktivitas perusahaan semata</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. Menjaga sumber produksi agar dapat digunakan efisien</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Mencegah penyakit akibat kerja</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 3 -->
+<div class="question">
+<h3>3. Menurut teori Domino Heinrich, faktor pertama yang memicu terjadinya kecelakaan kerja berasal dari...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Tindakan tidak aman pekerja</button>
+
+<button class="option" onclick="checkAnswer(this,false)">B. Kondisi lingkungan kerja yang buruk</button>
+
+<button class="option" onclick="checkAnswer(this,true)">C. Lingkungan sosial dan faktor keturunan</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. Kurangnya pengawasan dari manajemen</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Kurangnya penggunaan APD</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 4 -->
+<div class="question">
+<h3>4. Seorang pekerja terjatuh karena lantai licin tanpa tanda peringatan. Faktor penyebab kecelakaan ini termasuk...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Unsafe act (tindakan tidak aman)</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. Unsafe condition (kondisi tidak aman)</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. Human error dari pekerja itu sendiri</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. Kurangnya pengalaman pekerja</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Faktor alam yang tidak dapat dihindari</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 5 -->
+<div class="question">
+<h3>5. Penyakit Akibat Kerja (PAK) yang paling sering dialami oleh pekerja yang terpapar debu silika dalam jangka panjang adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Asbestosis</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. Silikosis</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. Asma akibat kerja</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. Dermatitis kontak</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Hepatitis B</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 6 -->
+<div class="question">
+<h3>6. Program Sistem Manajemen Keselamatan dan Kesehatan Kerja (SMK3) wajib diterapkan pada perusahaan dengan kriteria...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Perusahaan dengan modal di atas Rp 10 miliar</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. Perusahaan dengan 100 pekerja atau lebih, atau memiliki potensi bahaya tinggi</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. Semua perusahaan tanpa terkecuali</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. Perusahaan manufaktur saja</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Perusahaan yang sudah berdiri di atas 5 tahun</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 7 -->
+<div class="question">
+<h3>7. Piramida kecelakaan (Safety Triangle) menunjukkan bahwa setiap 1 kecelakaan fatal terdapat...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. 10 kecelakaan ringan dan 30 hampir celaka (near miss)</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. 29 kecelakaan serius dan 300 hampir celaka (near miss)</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. 50 kecelakaan ringan dan 500 hampir celaka (near miss)</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. 100 insiden minor dan 1.000 kondisi tidak aman</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. 15 kecelakaan berat dan 150 kecelakaan ringan</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 8 -->
+<div class="question">
+<h3>8. Apa yang dimaksud dengan 'near miss' dalam konteks K3?</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Kecelakaan yang menyebabkan korban jiwa</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. Kejadian yang hampir menjadi kecelakaan namun tidak menimbulkan cedera</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. Penyakit yang baru muncul setelah bertahun-tahun bekerja</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. Kondisi alat kerja yang rusak parah</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Pelanggaran prosedur kerja yang disengaja</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 9 -->
+<div class="question">
+<h3>9. Berikut ini contoh tindakan tidak aman (unsafe act) di tempat kerja, KECUALI...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Mengoperasikan mesin tanpa izin</button>
+
+<button class="option" onclick="checkAnswer(this,false)">B. Bekerja dengan kecepatan melebihi batas aman</button>
+
+<button class="option" onclick="checkAnswer(this,true)">C. Lantai tempat kerja yang licin dan bergelombang</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. Tidak menggunakan APD yang diwajibkan</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Membersihkan mesin yang masih beroperasi</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 10 -->
+<div class="question">
+<h3>10. Biaya yang muncul akibat kecelakaan kerja meliputi biaya langsung dan tidak langsung. Yang termasuk biaya tidak langsung kecelakaan kerja adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Biaya pengobatan dan perawatan korban</button>
+
+<button class="option" onclick="checkAnswer(this,false)">B. Biaya santunan untuk korban atau keluarga</button>
+
+<button class="option" onclick="checkAnswer(this,true)">C. Penurunan produktivitas dan moril pekerja lain</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. Biaya perbaikan alat yang rusak</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Biaya ambulans dan evakuasi</button>
+
+<div class="result"></div>
+</div>
+
+<div class="score-box">
+
+<h2 id="score">0</h2>
+
+<p>Skor Kamu</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+    <div class="footer-content">
+
+        <div>
+            <h3>Alamat Sekolah</h3>
+            <p>SMK Negeri 1 Jatirejo</p>
+            <p>Jl. Raya Sumengko Jatirejo, Mojokerto</p>
+            <p>Jawa Timur, Indonesia</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>📘 Facebook: smkn1jatirejo</p>
+            <p>📷 Instagram: smkn1jatirejo</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
+</div>
+
+<script>
+
+let score = 0;
+
+function checkAnswer(button, correct){
+
+    let parent = button.parentElement;
+
+    let options = parent.querySelectorAll('.option');
+
+    let result = parent.querySelector('.result');
+
+    options.forEach(opt => {
+
+        opt.disabled = true;
+
+    });
+
+    if(correct){
+
+        button.classList.add('correct');
+
+        result.innerHTML = "✅ Jawaban Benar";
+
+        score += 10;
+
+    }else{
+
+        button.classList.add('wrong');
+
+        result.innerHTML = "❌ Jawaban Salah";
+
+    }
+
+    document.getElementById('score').innerHTML = score;
+}
+
+</script>
+
+</body>
+</html>

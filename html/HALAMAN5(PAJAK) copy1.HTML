@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LKPD | LUNA EDU</title>
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:white;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    background:
+    linear-gradient(rgba(20,0,60,0.78), rgba(60,0,120,0.88)),
+    url("https://github.com/dimasorange258/testing/blob/main/images/hu%20'.gif?raw=true");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 70px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.menu{
+    display:flex;
+    gap:50px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:300;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#d8b4fe;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:30px 90px 120px;
+    position:relative;
+}
+
+/* ===== TITLE ===== */
+
+.title{
+    position:relative;
+    z-index:2;
+
+    font-size:95px;
+    font-family:'Baloo 2', cursive;
+
+    text-shadow:
+    0 5px 0 #6b21a8,
+    0 12px 25px rgba(0,0,0,0.5);
+
+    margin-top:30px;
+
+    text-align:center;
+}
+
+.subtitle{
+    position:relative;
+    z-index:2;
+
+    font-size:22px;
+    margin-top:10px;
+
+    opacity:0.9;
+
+    text-align:center;
+}
+
+/* ===== WRAPPER ===== */
+
+.modul-wrapper{
+    margin-top:45px;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:40px;
+
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 30px rgba(192,132,252,0.35);
+}
+
+/* ================================= */
+/* QUIZ INTERAKTIF */
+/* ================================= */
+
+.quiz-box{
+
+    background:#f8f5ff;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+}
+
+.quiz-box h2{
+
+    color:#4c1d95;
+
+    margin-bottom:35px;
+
+    font-size:38px;
+
+    text-align:center;
+}
+
+.question{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    margin-bottom:28px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.05);
+}
+
+.question h3{
+
+    color:#2e1065;
+
+    margin-bottom:20px;
+
+    line-height:1.7;
+}
+
+.option{
+
+    width:100%;
+
+    border:none;
+
+    margin-bottom:15px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    text-align:left;
+
+    transition:0.3s;
+
+    background:#ede9fe;
+
+    font-family:'Poppins', sans-serif;
+}
+
+.option:hover{
+
+    background:#d8b4fe;
+
+    transform:translateY(-2px);
+}
+
+.correct{
+
+    background:#22c55e !important;
+
+    color:white;
+}
+
+.wrong{
+
+    background:#ef4444 !important;
+
+    color:white;
+}
+
+.result{
+
+    margin-top:12px;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    color:#2e1065;
+}
+
+.score-box{
+
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:white;
+}
+
+.score-box h2{
+
+    font-size:55px;
+
+    color:white;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    background:white;
+    color:black;
+    padding:55px 120px;
+    margin-top:70px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:80px;
+}
+
+.footer h3{
+    margin-bottom:18px;
+    color:#4c1d95;
+    font-size:24px;
+}
+
+.footer p{
+    margin-bottom:10px;
+    color:#444;
+    font-size:17px;
+}
+
+.footer-bottom{
+    background:#f5f5f5;
+    color:black;
+    text-align:center;
+    padding:18px;
+    font-size:16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1100px){
+
+    .title{
+        font-size:70px;
+    }
+
+    .container{
+        padding:30px;
+    }
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        gap:20px;
+    }
+
+    .title{
+        font-size:50px;
+        text-align:center;
+    }
+
+    .subtitle{
+        text-align:center;
+    }
+
+    .footer{
+        padding:40px 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Kontak Kami</a>
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+    <div class="title">
+        LKPD ✨
+    </div>
+
+    <div class="subtitle">
+        Lembar Kerja Peserta Didik Interaktif Perpajakan
+    </div>
+
+    <!-- WRAPPER -->
+
+    <div class="modul-wrapper">
+
+
+
+<div class="quiz-box">
+
+<h2>🧠 Quiz Interaktif LKPD SPT</h2>
+
+<!-- SOAL 1 -->
+<div class="question">
+<h3>1. Pada Bagian A formulir SPT 1770 S (Identitas Wajib Pajak), kolom NPWP diisi dengan...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. nomor akun bank tempat pembayaran pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. 16 digit angka sesuai NIK bagi WP OP yang belum memiliki NPWP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. nomor surat kuasa dari konsultan pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. 15 digit kode verifikasi dari DJP Online
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. nomor faktur pajak masukan terakhir
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 2 -->
+<div class="question">
+<h3>2. Jika status perkawinan Wajib Pajak adalah kawin dengan 2 tanggungan (anak), maka pada bagian A SPT 1770 S akan mempengaruhi...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. jumlah penghasilan bruto setahun
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. besarnya Penghasilan Tidak Kena Pajak (PTKP)
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. kewajiban melampirkan laporan keuangan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. tarif PPh final yang dikenakan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. jenis formulir SPT yang digunakan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 3 -->
+<div class="question">
+<h3>3. Dalam pengisian Bagian B (Penghasilan Neto) SPT 1770 S, biaya jabatan dihitung berdasarkan...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. 5% dari penghasilan bruto dengan maksimal tertentu per tahun
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. seluruh biaya transportasi dan makan karyawan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. 50% dari total pengeluaran rumah tangga
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. jumlah premi asuransi yang dibayar perusahaan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. 10% dari gaji pokok tanpa batasan maksimal
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 4 -->
+<div class="question">
+<h3>4. Seorang Wajib Pajak memiliki PPh terutang Rp25 juta dan kredit pajak Rp30 juta. Pada Bagian E SPT 1770 S akan menunjukkan...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. kurang bayar Rp5 juta
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. nihil
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. lebih bayar Rp5 juta
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. kurang bayar Rp55 juta
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. perlu dilakukan pembetulan SPT
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 5 -->
+<div class="question">
+<h3>5. Lampiran yang wajib disertakan pada SPT Tahunan 1770 S jika terjadi kurang bayar adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. surat pernyataan harta bersih
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. bukti potong 1721 A1 dan Surat Setoran Pajak (SSP)
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. laporan neraca dan laba rugi
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. fotokopi rekening koran 3 bulan terakhir
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. daftar susunan keluarga
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 6 -->
+<div class="question">
+<h3>6. Fungsi pencantuman alamat sesuai KTP atau domisili dalam Bagian A SPT 1770 S adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. menentukan besaran PTKP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. sebagai dasar penerbitan surat ketetapan pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. menentukan kode KPP tempat pelaporan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. mengatur pembayaran pajak melalui bank persepsi
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. sebagai syarat pengajuan restitusi
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 7 -->
+<div class="question">
+<h3>7. Wajib Pajak meninggal dunia sebelum akhir tahun pajak. Kelengkapan SPT yang harus dilampirkan adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. fotokopi surat kematian dan SPT ditandatangani ahli waris
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. surat keterangan dari rumah sakit dan notaris
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. fotokopi akta kelahiran seluruh ahli waris
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. surat kuasa dari pengadilan negeri
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. laporan keuangan dari kurator
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 8 -->
+<div class="question">
+<h3>8. Batas waktu penyampaian SPT Masa menurut materi adalah paling lama...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. 20 hari setelah akhir masa pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. 15 hari setelah akhir masa pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. 30 hari setelah berakhirnya bulan pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. 20 hari setelah akhir tahun pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. 40 hari setelah akhir tahun buku
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 9 -->
+<div class="question">
+<h3>9. Jika tanggal 20 (batas pelaporan SPT Masa) jatuh pada hari Sabtu nasional, maka pelaporan dapat dilakukan pada...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. hari Sabtu tetap bisa melalui pos
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. hari Senin berikutnya (hari kerja)
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. hari Minggu melalui e-filing
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. hari Jumat sebelumnya
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. tanggal 21 tanpa denda
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 10 -->
+<div class="question">
+<h3>10. Kelengkapan SPT Masa PPN selain SSP adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. daftar bukti pemotongan PPh 23
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. faktur pajak masukan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. bukti setor PPh Pasal 25
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. daftar nominatif biaya promosi
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. rekapitulasi penghasilan bruto
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 11 -->
+<div class="question">
+<h3>11. Wajib Pajak Badan dengan tahun buku Januari-Desember. Batas akhir penyampaian SPT Tahunan adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. 31 Maret tahun berikutnya
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. 30 April tahun berikutnya
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. 31 Januari tahun berikutnya
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. 31 Desember tahun berjalan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. 30 Juni tahun berikutnya
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 12 -->
+<div class="question">
+<h3>12. Kekurangan pembayaran pajak berdasarkan SPT Tahunan PPh harus dilunasi...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. setelah terbit SKPKB
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. sebelum SPT Tahunan disampaikan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. paling lambat 3 bulan setelah lebaran
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. bersamaan dengan pembayaran angsuran pertama
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. setelah mendapatkan persetujuan menteri keuangan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 13 -->
+<div class="question">
+<h3>13. Dalam kelengkapan SPT Masa PPh Pasal 21, dokumen yang wajib dilampirkan antara lain...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. SSP dan bukti pemotongan serta daftarnya
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. laporan keuangan audit
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. faktur pajak masukan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. daftar piutang tak tertagih
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. rekapitulasi stok barang
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 14 -->
+<div class="question">
+<h3>14. Fungsi dari Bagian D (Kredit Pajak) dalam SPT 1770 S adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. mencatat semua potongan biaya jabatan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. melaporkan PPh yang telah dipotong pemberi kerja melalui bukti potong 1721 A1
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. menghitung ulang PTKP berdasarkan status perkawinan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. mendaftarkan harta baru yang diperoleh
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. mengajukan pembebasan pajak karena sakit keras
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 15 -->
+<div class="question">
+<h3>15. Wajib Pajak yang menggunakan pencatatan (tidak pembukuan lengkap) dalam SPT Tahunan harus melampirkan...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. neraca dan laporan laba rugi
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. ringkasan peredaran bruto
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. laporan arus kas
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. daftar susunan pengurus
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. surat pernyataan harta
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 16 -->
+<div class="question">
+<h3>16. Jika SPT tidak ditandatangani oleh Wajib Pajak sendiri karena sakit keras, maka harus dilampirkan...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. surat kuasa bermeterai cukup
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. fotokopi KTP keluarga terdekat
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. surat keterangan dari lurah
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. fotokopi rekam medis rumah sakit
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. surat pernyataan ahli waris
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 17 -->
+<div class="question">
+<h3>17. Dalam hal Wajib Pajak OP memiliki penghasilan neto tidak melebihi PTKP, maka...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. tetap wajib menyampaikan SPT Tahunan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. dikecualikan dari kewajiban menyampaikan SPT Tahunan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. wajib melampirkan laporan keuangan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. dikenakan PPh final 0,5%
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. harus mengajukan permohonan penghapusan NPWP
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 18 -->
+<div class="question">
+<h3>18. Contoh penerapan batas waktu pembayaran pajak yang jatuh pada hari libur nasional berdasarkan materi adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pembayaran tetap harus dilakukan pada hari libur melalui mobile banking
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. pembayaran dapat dilakukan pada hari kerja berikutnya tanpa denda
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. pembayaran dilakukan sebelum hari libur dengan surat pemberitahuan khusus
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. pembayaran ditunda hingga akhir bulan berikutnya
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. pembayaran dianggap tidak sah dan harus mengulang
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 19 -->
+<div class="question">
+<h3>19. Manakah yang merupakan kelengkapan "lain yang dianggap perlu" dalam SPT Tahunan?</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. Faktur pajak masukan seluruh transaksi
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. Fotokopi KTP dan/atau Kartu Keluarga
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. Surat keterangan bebas pajak dari konsultan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. Daftar gaji karyawan selama setahun
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. Bukti setor PBB tahun berjalan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 20 -->
+<div class="question">
+<h3>20. Urutan pengisian SPT 1770 S yang benar berdasarkan bagian-bagian formulir adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. Identitas → Kredit Pajak → PPh Terutang → Penghasilan Neto → Kurang/Lebih bayar
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. Identitas → Penghasilan Neto → PPh Terutang → Kredit Pajak → Kurang/Lebih bayar
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. Identitas → PPh Terutang → Penghasilan Neto → Kurang/Lebih bayar → Kredit Pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. Identitas → Kurang/Lebih bayar → Penghasilan Neto → PPh Terutang → Kredit Pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. Identitas → PPh Terutang → Kredit Pajak → Penghasilan Neto → Kurang/Lebih bayar
+</button>
+
+<div class="result"></div>
+</div>
+
+
+
+<div class="score-box">
+
+<h2 id="score">0</h2>
+
+<p>Skor Kamu</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+    <div class="footer-content">
+
+        <div>
+            <h3>Alamat Sekolah</h3>
+            <p>SMK Negeri 1 Jatirejo</p>
+            <p>Jl. Raya Sumengko Jatirejo, Mojokerto</p>
+            <p>Jawa Timur, Indonesia</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>📘 Facebook: smkn1jatirejo</p>
+            <p>📷 Instagram: smkn1jatirejo</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
+</div>
+
+<script>
+
+let score = 0;
+
+function checkAnswer(button, correct){
+
+    let parent = button.parentElement;
+
+    let options = parent.querySelectorAll('.option');
+
+    let result = parent.querySelector('.result');
+
+    options.forEach(opt => {
+
+        opt.disabled = true;
+
+    });
+
+    if(correct){
+
+        button.classList.add('correct');
+
+        result.innerHTML = "✅ Jawaban Benar";
+
+        score += 5;
+
+    }else{
+
+        button.classList.add('wrong');
+
+        result.innerHTML = "❌ Jawaban Salah";
+
+    }
+
+    document.getElementById('score').innerHTML = score;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LKPD | LUNA EDU</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+
+    background:
+    linear-gradient(rgba(20,0,60,0.78), rgba(60,0,120,0.88)),
+    url("https://github.com/dimasorange258/testing/blob/main/images/hu%20'.gif?raw=true");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:white;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 70px;
+}
+
+.logo img{
+    width:70px;
+}
+
+.menu{
+    display:flex;
+    gap:40px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+}
+
+/* CONTAINER */
+
+.container{
+    width:100%;
+    max-width:1500px;
+    margin:auto;
+    padding:30px;
+}
+
+/* TITLE */
+
+.title{
+    font-size:90px;
+    font-family:'Baloo 2', cursive;
+    text-align:center;
+
+    text-shadow:
+    0 5px 0 #6b21a8,
+    0 12px 25px rgba(0,0,0,0.5);
+}
+
+.subtitle{
+    text-align:center;
+    font-size:22px;
+    margin-top:10px;
+    margin-bottom:40px;
+}
+
+/* WRAPPER */
+
+.modul-wrapper{
+    background:white;
+    border-radius:35px;
+    padding:40px;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 30px rgba(192,132,252,0.35);
+}
+
+/* MENU LKPD */
+
+.lkpd-menu{
+
+    background:#f8f5ff;
+
+    padding:35px;
+
+    border-radius:30px;
+}
+
+.lkpd-menu h2{
+
+    color:#4c1d95;
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+    font-size:38px;
+}
+
+.lkpd-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+}
+
+/* CARD LKPD */
+
+.lkpd-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+}
+
+.lkpd-card:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:
+    0 15px 25px rgba(124,58,237,0.2);
+}
+
+.lkpd-icon{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+}
+
+.lkpd-card h3{
+
+    color:#4c1d95;
+
+    margin-bottom:10px;
+
+    font-size:25px;
+}
+
+.lkpd-card p{
+
+    color:#666;
+
+    margin-bottom:25px;
+}
+
+/* BUTTON */
+
+.lkpd-btn{
+
+    display:block;
+
+    width:100%;
+
+    text-decoration:none;
+
+    margin-bottom:15px;
+
+    padding:15px;
+
+    border-radius:16px;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.view-btn{
+
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+}
+
+.download-btn{
+
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+}
+
+.lkpd-btn:hover{
+
+    transform:scale(1.03);
+}
+
+/* FOOTER */
+
+.footer{
+    background:white;
+    color:black;
+    padding:55px 120px;
+    margin-top:70px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:80px;
+}
+
+.footer h3{
+    margin-bottom:18px;
+    color:#4c1d95;
+}
+
+.footer p{
+    margin-bottom:10px;
+}
+
+.footer-bottom{
+    background:#f5f5f5;
+    color:black;
+    text-align:center;
+    padding:18px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        gap:20px;
+    }
+
+    .title{
+        font-size:55px;
+    }
+
+    .subtitle{
+        font-size:18px;
+    }
+
+    .footer{
+        padding:40px 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="logo">
+<img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+</div>
+
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="#">Tentang</a>
+<a href="#">Kontak</a>
+</div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+<div class="title">
+LKPD ✨
+</div>
+
+<div class="subtitle">
+Lembar Kerja Peserta Didik Interaktif Perpajakan
+</div>
+
+<div class="modul-wrapper">
+
+<div class="lkpd-menu">
+
+<h2>📚 Daftar LKPD</h2>
+
+<div class="lkpd-grid">
+
+<!-- LKPD 1 -->
+
+<div class="lkpd-card">
+
+<div class="lkpd-icon">
+📄
+</div>
+
+<h3>LKPD 1</h3>
+
+<p>
+SPT Pajak
+</p>
+
+<a href="HALAMAN5(PAJAK).HTML"
+class="lkpd-btn view-btn">
+
+🧠 Kerjakan Soal
+
+</a>
+
+</div>
+
+<!-- LKPD 2 -->
+
+<div class="lkpd-card">
+
+<div class="lkpd-icon">
+📄
+</div>
+
+<h3>LKPD 2</h3>
+
+<p>
+Subjek dan Objek Pajak
+</p>
+
+<a href="HALAMAN5(PAJAK) copy1.HTML"
+class="lkpd-btn view-btn">
+
+🧠 Kerjakan Soal
+
+</a>
+
+</div>
+
+<!-- LKPD 3 -->
+
+<div class="lkpd-card">
+
+<div class="lkpd-icon">
+📄
+</div>
+
+<h3>LKPD 3</h3>
+
+<p>
+NPWP dan Fungsi Pajak
+</p>
+
+<a href="HALAMAN5(PAJAK) copy2.HTML"
+class="lkpd-btn view-btn">
+
+🧠 Kerjakan Soal
+
+</a>
+
+</div>
+
+<!-- LKPD 4 -->
+
+<div class="lkpd-card">
+
+<div class="lkpd-icon">
+📄
+</div>
+
+<h3>LKPD 4</h3>
+
+<p>
+PPh Pasal 21
+</p>
+
+<a href="HALAMAN5(PAJAK) copy3.HTML"
+class="lkpd-btn view-btn">
+
+🧠 Kerjakan Soal
+
+</a>
+
+</div>
+
+<!-- LKPD 5 -->
+
+<div class="lkpd-card">
+
+<div class="lkpd-icon">
+📄
+</div>
+
+<h3>LKPD 4</h3>
+
+<p>
+PPh Pasal 21
+</p>
+
+<a href="HALAMAN5(PAJAK) copy4.HTML"
+class="lkpd-btn view-btn">
+
+🧠 Kerjakan Soal
+
+</a>
+
+</div>
+
+<!-- LKPD 6 -->
+
+<div class="lkpd-card">
+
+<div class="lkpd-icon">
+📄
+</div>
+
+<h3>LKPD 4</h3>
+
+<p>
+PPh Pasal 21
+</p>
+
+<a href="HALAMAN5(PAJAK) copy5.HTML"
+class="lkpd-btn view-btn">
+
+🧠 Kerjakan Soal
+
+</a>
+
+</div>
+
+<!-- LKPD 7 -->
+
+<div class="lkpd-card">
+
+<div class="lkpd-icon">
+📄
+</div>
+
+<h3>LKPD 4</h3>
+
+<p>
+PPh Pasal 21
+</p>
+
+<a href="HALAMAN5(PAJAK) copy6.HTML"
+class="lkpd-btn view-btn">
+
+🧠 Kerjakan Soal
+
+</a>
+
+</div>
+
+<!-- LKPD 8-->
+
+<div class="lkpd-card">
+
+<div class="lkpd-icon">
+📄
+</div>
+
+<h3>LKPD 4</h3>
+
+<p>
+PPh Pasal 21
+</p>
+
+<a href="HALAMAN5(PAJAK) copy7.HTML"
+class="lkpd-btn view-btn">
+
+🧠 Kerjakan Soal
+
+</a>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<div class="footer-content">
+
+<div>
+<h3>Alamat Sekolah</h3>
+<p>SMK Negeri 1 Jatirejo</p>
+<p>Jl. Raya Sumengko Jatirejo, Mojokerto</p>
+<p>Jawa Timur, Indonesia</p>
+</div>
+
+<div>
+<h3>Follow Us</h3>
+<p>📘 Facebook: smkn1jatirejo</p>
+<p>📷 Instagram: smkn1jatirejo</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
+</div>
+
+</body>
+</html>

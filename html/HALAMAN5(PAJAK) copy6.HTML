@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LKPD | LUNA EDU</title>
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:white;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    background:
+    linear-gradient(rgba(20,0,60,0.78), rgba(60,0,120,0.88)),
+    url("https://github.com/dimasorange258/testing/blob/main/images/hu%20'.gif?raw=true");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 70px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.menu{
+    display:flex;
+    gap:50px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:300;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#d8b4fe;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:30px 90px 120px;
+    position:relative;
+}
+
+/* ===== TITLE ===== */
+
+.title{
+    position:relative;
+    z-index:2;
+
+    font-size:95px;
+    font-family:'Baloo 2', cursive;
+
+    text-shadow:
+    0 5px 0 #6b21a8,
+    0 12px 25px rgba(0,0,0,0.5);
+
+    margin-top:30px;
+
+    text-align:center;
+}
+
+.subtitle{
+    position:relative;
+    z-index:2;
+
+    font-size:22px;
+    margin-top:10px;
+
+    opacity:0.9;
+
+    text-align:center;
+}
+
+/* ===== WRAPPER ===== */
+
+.modul-wrapper{
+    margin-top:45px;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:40px;
+
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 30px rgba(192,132,252,0.35);
+}
+
+/* ================================= */
+/* QUIZ INTERAKTIF */
+/* ================================= */
+
+.quiz-box{
+
+    background:#f8f5ff;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+}
+
+.quiz-box h2{
+
+    color:#4c1d95;
+
+    margin-bottom:35px;
+
+    font-size:38px;
+
+    text-align:center;
+}
+
+.question{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    margin-bottom:28px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.05);
+}
+
+.question h3{
+
+    color:#2e1065;
+
+    margin-bottom:20px;
+
+    line-height:1.7;
+}
+
+.option{
+
+    width:100%;
+
+    border:none;
+
+    margin-bottom:15px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    text-align:left;
+
+    transition:0.3s;
+
+    background:#ede9fe;
+
+    font-family:'Poppins', sans-serif;
+}
+
+.option:hover{
+
+    background:#d8b4fe;
+
+    transform:translateY(-2px);
+}
+
+.correct{
+
+    background:#22c55e !important;
+
+    color:white;
+}
+
+.wrong{
+
+    background:#ef4444 !important;
+
+    color:white;
+}
+
+.result{
+
+    margin-top:12px;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    color:#2e1065;
+}
+
+.score-box{
+
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:white;
+}
+
+.score-box h2{
+
+    font-size:55px;
+
+    color:white;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    background:white;
+    color:black;
+    padding:55px 120px;
+    margin-top:70px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:80px;
+}
+
+.footer h3{
+    margin-bottom:18px;
+    color:#4c1d95;
+    font-size:24px;
+}
+
+.footer p{
+    margin-bottom:10px;
+    color:#444;
+    font-size:17px;
+}
+
+.footer-bottom{
+    background:#f5f5f5;
+    color:black;
+    text-align:center;
+    padding:18px;
+    font-size:16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1100px){
+
+    .title{
+        font-size:70px;
+    }
+
+    .container{
+        padding:30px;
+    }
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        gap:20px;
+    }
+
+    .title{
+        font-size:50px;
+        text-align:center;
+    }
+
+    .subtitle{
+        text-align:center;
+    }
+
+    .footer{
+        padding:40px 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Kontak Kami</a>
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+    <div class="title">
+        LKPD ✨
+    </div>
+
+    <div class="subtitle">
+        Lembar Kerja Peserta Didik Interaktif Perpajakan
+    </div>
+
+    <!-- WRAPPER -->
+
+    <div class="modul-wrapper">
+
+
+
+<div class="quiz-box">
+
+<h2>🧠 Quiz Interaktif LKPD SPT</h2>
+
+<!-- SOAL 1 -->
+<div class="question">
+<h3>1. Seorang pegawai memiliki penghasilan bruto Rp10.000.000 per bulan. Jika biaya jabatan maksimal Rp500.000, maka penghasilan neto sebelum iuran pensiun adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. Rp9.000.000 setiap bulan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. Rp9.500.000 setiap bulan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. Rp10.000.000 setiap bulan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. Rp9.750.000 setiap bulan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. Rp8.500.000 setiap bulan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 2 -->
+<div class="question">
+<h3>2. Penghasilan neto setahun diperoleh dengan cara ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. mengurangi PTKP dari bruto bulanan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. mengalikan penghasilan bruto dengan tarif pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. mengurangi bruto dengan pengurang fiskal lalu disetahunkan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. mengurangi bruto dengan TER tahunan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. menghitung bonus dan THR saja
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 3 -->
+<div class="question">
+<h3>3. Jika seorang pegawai memiliki penghasilan neto setahun Rp70.000.000 dan PTKP Rp54.000.000, maka PKP sebelum pembulatan adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. Rp14.000.000
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. Rp16.000.000
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. Rp20.000.000
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. Rp24.000.000
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. Rp54.000.000
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 4 -->
+<div class="question">
+<h3>4. Pembulatan PKP dilakukan dengan tujuan utama untuk ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. mempermudah administrasi perpajakan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. meningkatkan tarif pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. mengurangi penghasilan bruto
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. menghapus biaya jabatan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. menambah PTKP wajib pajak
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 5 -->
+<div class="question">
+<h3>5. Seorang pegawai memperoleh PKP Rp50.000.000. Berdasarkan tarif Pasal 17 lapisan pertama, tarif yang digunakan adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. 5% untuk seluruh PKP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. 10% untuk seluruh PKP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. 15% untuk seluruh PKP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. 20% untuk seluruh PKP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. 25% untuk seluruh PKP
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 6 -->
+<div class="question">
+<h3>6. Perusahaan menggunakan TER selama Januari–November agar ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. perhitungan pajak bulanan lebih praktis
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. PTKP pegawai menjadi lebih besar
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. pegawai bebas pajak akhir tahun
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. tarif progresif dihapus
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. penghasilan bruto menurun
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 7 -->
+<div class="question">
+<h3>7. Jika penghasilan neto pegawai meningkat tetapi PTKP tetap, maka kemungkinan yang terjadi adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. PKP menurun
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. PPh terutang menurun
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. PKP meningkat
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. biaya jabatan hilang
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. tarif pajak menjadi final
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 8 -->
+<div class="question">
+<h3>8. Seorang pegawai menerima THR besar pada bulan tertentu. Dampak langsung terhadap penghasilan bruto adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. penghasilan bruto menurun
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. penghasilan bruto meningkat
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. PTKP menjadi nol
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. PKP otomatis negatif
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. tarif progresif tidak berlaku
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 9 -->
+<div class="question">
+<h3>9. Mengapa bonus tahunan tetap diperhitungkan dalam PPh 21?</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. karena bonus bukan penghasilan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. karena bonus termasuk objek penghasilan pegawai
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. karena bonus menggantikan PTKP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. karena bonus bebas pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. karena bonus hanya dihitung perusahaan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 10 -->
+<div class="question">
+<h3>10. Pegawai yang bekerja tidak penuh satu tahun memerlukan metode pro-rata agar ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. seluruh pegawai memiliki pajak sama
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. penghasilan neto tahunan dapat diperkirakan secara adil
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. PTKP dihapus sementara
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. biaya jabatan menjadi lebih besar
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. tarif progresif tidak berlaku
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 11 -->
+<div class="question">
+<h3>11. Jika perusahaan lupa mengurangi iuran pensiun dalam perhitungan pajak, maka dampak yang paling mungkin adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. PKP menjadi lebih kecil
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. PPh terutang menjadi lebih besar
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. penghasilan bruto menjadi negatif
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. PTKP pegawai bertambah
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. tarif TER dihapus
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 12 -->
+<div class="question">
+<h3>12. Seorang pegawai memiliki penghasilan neto di bawah PTKP. Kondisi tersebut menunjukkan bahwa ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pegawai terkena tarif tertinggi
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. pegawai tetap wajib membayar pajak penuh
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. pegawai tidak memiliki PPh terutang
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. pegawai harus membayar PPN
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. pegawai kehilangan hak PTKP
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 13 -->
+<div class="question">
+<h3>13. Tarif progresif pada Pasal 17 menunjukkan bahwa ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. seluruh wajib pajak membayar tarif sama
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. semakin besar PKP dapat dikenai tarif lebih tinggi
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. pegawai bebas pajak pada akhir tahun
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. PTKP berlaku dua kali
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. TER digunakan sepanjang tahun
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 14 -->
+<div class="question">
+<h3>14. Mengapa penghasilan bruto tidak langsung dikenai tarif pajak?</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. karena harus dikurangi pengurang fiskal terlebih dahulu
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. karena bruto bukan objek pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. karena PTKP dihitung lebih dulu dari pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. karena tarif pajak hanya untuk bonus
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. karena semua penghasilan bersifat final
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 15 -->
+<div class="question">
+<h3>15. Jika PKP setelah pembulatan bernilai Rp0, maka ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pegawai tetap dikenai tarif 5%
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. pegawai wajib membayar TER bulanan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. tidak ada pajak yang terutang
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. perusahaan membayar pajak pegawai
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. pegawai kehilangan NPWP
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 16 -->
+<div class="question">
+<h3>16. Biaya jabatan disebut pengurang standar karena ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. diberikan berdasarkan bukti pengeluaran lengkap
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. besarannya telah ditentukan ketentuan perpajakan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. selalu sama dengan PTKP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. ditentukan oleh perusahaan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. bergantung pada bonus pegawai
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 17 -->
+<div class="question">
+<h3>17. Perusahaan melakukan rekonsiliasi pajak pada bulan Desember untuk memastikan bahwa ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. seluruh pegawai menerima bonus
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. jumlah PPh setahun telah sesuai ketentuan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. penghasilan bruto menjadi tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. PTKP seluruh pegawai sama
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. tarif TER berlaku permanen
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 18 -->
+<div class="question">
+<h3>18. Pegawai dengan tanggungan lebih banyak umumnya memiliki PKP lebih kecil karena ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. penghasilan brutonya lebih rendah
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. tarif pajaknya dihapus
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. PTKP yang diperoleh lebih besar
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. biaya jabatan bertambah
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. bonus tahunannya lebih kecil
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 19 -->
+<div class="question">
+<h3>19. Dalam sistem PPh 21, fungsi utama PTKP adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. menjadi dasar tarif progresif
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. mengurangi penghasilan yang dikenai pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. menambah penghasilan bruto
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. menghitung biaya jabatan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. menghapus penghasilan neto
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 20 -->
+<div class="question">
+<h3>20. Kesalahan dalam menentukan status PTKP dapat berdampak pada ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. jumlah PKP dan pajak terutang
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. warna bukti potong pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. masa kerja pegawai
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. jumlah bonus tahunan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. jenis perusahaan tempat bekerja
+</button>
+
+<div class="result"></div>
+</div>
+
+
+
+<div class="score-box">
+
+<h2 id="score">0</h2>
+
+<p>Skor Kamu</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+    <div class="footer-content">
+
+        <div>
+            <h3>Alamat Sekolah</h3>
+            <p>SMK Negeri 1 Jatirejo</p>
+            <p>Jl. Raya Sumengko Jatirejo, Mojokerto</p>
+            <p>Jawa Timur, Indonesia</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>📘 Facebook: smkn1jatirejo</p>
+            <p>📷 Instagram: smkn1jatirejo</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
+</div>
+
+<script>
+
+let score = 0;
+
+function checkAnswer(button, correct){
+
+    let parent = button.parentElement;
+
+    let options = parent.querySelectorAll('.option');
+
+    let result = parent.querySelector('.result');
+
+    options.forEach(opt => {
+
+        opt.disabled = true;
+
+    });
+
+    if(correct){
+
+        button.classList.add('correct');
+
+        result.innerHTML = "✅ Jawaban Benar";
+
+        score += 5;
+
+    }else{
+
+        button.classList.add('wrong');
+
+        result.innerHTML = "❌ Jawaban Salah";
+
+    }
+
+    document.getElementById('score').innerHTML = score;
+}
+
+</script>
+
+</body>
+</html>

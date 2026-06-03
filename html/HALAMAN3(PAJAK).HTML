@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MODUL AJAR | LUNA EDU</title>
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:white;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    background:
+    linear-gradient(rgba(20,0,60,0.78), rgba(60,0,120,0.88)),
+    url("https://github.com/dimasorange258/testing/blob/main/images/hu%20'.gif?raw=true");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 70px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.menu{
+    display:flex;
+    gap:50px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:300;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#d8b4fe;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:100%;
+    max-width:1700px;
+    margin:auto;
+    padding:30px 90px 120px;
+    position:relative;
+}
+
+/* ===== BULAN ===== */
+
+.moon{
+    position:absolute;
+    right:10px;
+    top:20px;
+    opacity:0.18;
+    z-index:1;
+}
+
+.moon img{
+    width:520px;
+}
+
+/* ===== TITLE ===== */
+
+.title{
+    position:relative;
+    z-index:2;
+
+    font-size:95px;
+    font-family:'Baloo 2', cursive;
+
+    text-shadow:
+    0 5px 0 #6b21a8,
+    0 12px 25px rgba(0,0,0,0.5);
+
+    margin-top:30px;
+}
+
+.subtitle{
+    position:relative;
+    z-index:2;
+
+    font-size:22px;
+    margin-top:10px;
+
+    opacity:0.9;
+}
+
+/* ===== WRAPPER ===== */
+
+.modul-wrapper{
+    margin-top:45px;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:40px;
+
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 30px rgba(192,132,252,0.35);
+
+    /* SCROLL */
+    max-height:950px;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+
+.modul-wrapper::-webkit-scrollbar{
+    width:12px;
+}
+
+.modul-wrapper::-webkit-scrollbar-track{
+    background:#ede9fe;
+    border-radius:20px;
+}
+
+.modul-wrapper::-webkit-scrollbar-thumb{
+    background:linear-gradient(#a855f7,#6d28d9);
+    border-radius:20px;
+}
+/* ===== GRID ===== */
+
+.modul-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+}
+
+/* ===== CARD ===== */
+
+.modul-card{
+    background:#f8f5ff;
+
+    border-radius:28px;
+
+    padding:25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    border:2px solid transparent;
+
+    transition:0.3s;
+}
+
+.modul-card:hover{
+    transform:translateY(-7px);
+
+    border:2px solid #c084fc;
+
+    box-shadow:
+    0 10px 20px rgba(124,58,237,0.2);
+}
+
+/* ===== LEFT ===== */
+
+.modul-left{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+/* ===== NUMBER ===== */
+
+.number{
+    width:60px;
+    height:60px;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* ===== FILE ICON ===== */
+
+.file-icon{
+    width:60px;
+    height:60px;
+
+    border-radius:18px;
+
+    background:#ede9fe;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:30px;
+}
+
+/* ===== TEXT ===== */
+
+.modul-text h3{
+    color:#2e1065;
+    font-size:24px;
+    margin-bottom:5px;
+}
+
+.modul-text p{
+    color:#555;
+    font-size:15px;
+}
+
+/* ===== DOWNLOAD ===== */
+
+.download-btn{
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#a855f7,#6d28d9);
+
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    font-size:25px;
+
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    transform:scale(1.1);
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    background:white;
+    color:black;
+    padding:55px 120px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:80px;
+}
+
+.footer h3{
+    margin-bottom:18px;
+    color:#4c1d95;
+    font-size:24px;
+}
+
+.footer p{
+    margin-bottom:10px;
+    color:#444;
+    font-size:17px;
+}
+
+.footer-bottom{
+    background:#f5f5f5;
+    color:black;
+    text-align:center;
+    padding:18px;
+    font-size:16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1100px){
+
+    .modul-grid{
+        grid-template-columns:1fr;
+    }
+
+    .title{
+        font-size:70px;
+    }
+
+    .container{
+        padding:30px;
+    }
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        gap:20px;
+    }
+
+    .title{
+        font-size:50px;
+        text-align:center;
+    }
+
+    .subtitle{
+        text-align:center;
+    }
+
+    .modul-card{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+
+    .modul-left{
+        flex-direction:column;
+    }
+
+    .footer{
+        padding:40px 30px;
+    }
+
+    .moon img{
+        width:280px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Kontak Kami</a>
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+   
+    <!-- TITLE -->
+    <div class="title">
+        MODUL AJAR ✨
+    </div>
+
+    <div class="subtitle">
+        Kumpulan modul pembelajaran perpajakan untuk siswa SMK.
+    </div>
+
+    <!-- MODUL -->
+    <div class="modul-wrapper">
+
+        <div class="modul-grid">
+
+            <!-- 18 MODUL -->
+
+          <!-- MODUL 1 -->
+
+<div class="modul-card">
+
+    <div class="modul-left">
+
+        <div class="number">01</div>
+
+        <div class="file-icon">📄</div>
+
+        <div class="modul-text">
+            <h3>Modul Ajar 1</h3>
+            <p>SPT Pajak</p>
+        </div>
+
+    </div>
+
+    <a href="https://raw.githubusercontent.com/dimasorange258/SMKN-1-JATIREJO-/main/MODUL%20AJAR/MODUL%20AJAR%20SPT.pdf"
+       class="download-btn"
+       download
+       target="_blank">
+
+       📥
+
+    </a>
+
+</div>
+
+            <div class="modul-card">
+                <div class="modul-left">
+                    <div class="number">02</div>
+                    <div class="file-icon">📄</div>
+                    <div class="modul-text">
+                        <h3>Modul Ajar 2</h3>
+                        <p>Subjek dan Objek Pajak</p>
+                    </div>
+                </div>
+                <a href="https://raw.githubusercontent.com/dimasorange258/SMKN-1-JATIREJO-/main/MODUL%20AJAR/MODUL%20AJAR%20pph%2021.pdf" class="download-btn">📥</a>
+            </div>
+
+            <div class="modul-card">
+                <div class="modul-left">
+                    <div class="number">03</div>
+                    <div class="file-icon">📄</div>
+                    <div class="modul-text">
+                        <h3>Modul Ajar 3</h3>
+                        <p>NPWP dan Fungsi Pajak</p>
+                    </div>
+                </div>
+                <a href="https://raw.githubusercontent.com/dimasorange258/SMKN-1-JATIREJO-/main/MODUL%20AJAR/MODUL%20AJAr%20ssp%20FUIKS.pdf" class="download-btn">📥</a>
+            </div>
+
+            
+                      </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+    <div class="footer-content">
+
+        <div>
+            <h3>Alamat Sekolah</h3>
+            <p>SMK Negeri 1 Jatirejo</p>
+            <p>Jl. Raya Sumengko Jatirejo, Mojokerto</p>
+            <p>Jawa Timur, Indonesia</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>📘 Facebook: smkn1jatirejo</p>
+            <p>📷 Instagram: smkn1jatirejo</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
+</div>
+
+</body>
+</html>

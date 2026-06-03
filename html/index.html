@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUNA EDU</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ========================= */
+/* 🔥 OPSI BACKGROUND GLOBAL */
+/* ========================= */
+body {
+    /* OPSI 1: background biasa */
+    background: #0b0b2b;
+
+    /* OPSI 2: pakai gambar full (aktifkan jika mau) */
+    /* background: url("HOME.png") no-repeat center center fixed;
+       background-size: cover; */
+
+    overflow-x: hidden;
+}
+
+/* ===== LOADING SCREEN ===== */
+.loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("https://github.com/dimasorange258/testing/blob/main/images/hum.gif?raw=true");
+    opacity: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    color: white;
+}
+
+.loader img {
+    width: 700px;
+    margin-bottom: 10px;
+    animation: zoomIn 5s ease;
+}
+
+
+
+/* animasi */
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 220px }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+/* sembunyikan setelah load */
+.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+/* ===== HERO GALAXY ===== */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: radial-gradient(circle at top, #6a0dad, #1a0033);
+    color: white;
+    overflow: hidden;
+}
+
+/* efek bintang */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("https://github.com/dimasorange258/testing/blob/main/images/hum.gif?raw=true");
+    opacity: 0.7;
+}
+
+/* ========================= */
+/* 🌕 GAMBAR BULAN (SUDAH FIX) */
+/* ========================= */
+.hero::after {
+    content: "";
+    position: absolute;
+    left: -120px;
+    bottom: -80px;
+    width: 500px;
+    height: 500px;
+
+    /* ========================= */
+    /* 🔥 PILIH SALAH SATU */
+    /* ========================= */
+
+    /* ✅ OPSI 1: GAMBAR LOKAL */
+    background: url("C:\Users\ASUS\Downloads\HOME.png") no-repeat center;
+
+    /* ✅ OPSI 2: GAMBAR ONLINE */
+    /* background: url("C:\Users\ASUS\Downloads\HOME.png") no-repeat center; */
+
+    /* ========================= */
+
+    background-size: contain;
+    opacity: 0.9;
+    z-index: 1;
+
+    /* glow */
+    filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.6));
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.navbar h2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.navbar ul li {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbar ul li:hover {
+    color: #c084fc;
+}
+
+/* HERO CONTENT */
+.hero-content {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+/* JUDUL BESAR */
+.hero-text h1 {
+    font-size: 100px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-shadow: 6px 6px 0 rgba(0,0,0,0.4);
+}
+
+/* SUBTITLE */
+.hero-text p {
+    font-size: 24px;
+    margin: 20px 0;
+    opacity: 0.9;
+}
+
+/* BUTTON */
+.btn {
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.btn {
+    text-decoration: none; /* hilangkan garis bawah */
+    display: inline-block;
+}
+.btn-primary {
+    background: linear-gradient(135deg, #a855f7, #6d28d9);
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: whitesmoke;
+    color: black;
+    padding: 25px 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer h3 {
+    margin-bottom: 10px;
+}
+
+.footer p {
+    opacity: 0.85;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.footer p:hover {
+    transform: translateX(5px);
+    color: #c084fc;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    background: white;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* ANIMASI */
+@keyframes zoomIn {
+    from { transform: scale(0.5); }
+    to { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+    <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+
+</div>
+
+<!-- HERO -->
+<div class="hero">
+
+    <div class="navbar">
+        <h2>LUNA</h2>
+        <ul>
+            <li>Home</li>
+            <li>Tentang Kami</li>
+            <li>Kontak</li>
+        </ul>
+    </div>
+
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>LUNA.EDU</h1>
+            <p>Belajar Tanpa Batas Dengan Platform Interaktif</p>
+            <a href="HALAMAN1.HTML" class="btn btn-primary">GET STARTED</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <div class="footer-content">
+        <div>
+            <h3>Alamat Sekolah</h3>
+            <p>SMK Negeri 1 Jatirejo</p>
+            <p>JJL. RAYA SUMENGKO JATIREJO, Sumengko, Kec. Jatirejo, Mojokerto</p>
+            <p>Jawa Timur, Indonesia</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>📘 Facebook: smkn1jatirejo</p>
+            <p>📷 Instagram: smkn1jatirejo</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
+</div>
+
+<script>
+window.onload = function() {
+    setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+    }, 2000);
+}
+</script>
+
+</body>
+</html>

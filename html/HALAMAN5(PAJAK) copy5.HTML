@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LKPD | LUNA EDU</title>
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:white;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    background:
+    linear-gradient(rgba(20,0,60,0.78), rgba(60,0,120,0.88)),
+    url("https://github.com/dimasorange258/testing/blob/main/images/hu%20'.gif?raw=true");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 70px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.menu{
+    display:flex;
+    gap:50px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:300;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#d8b4fe;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:30px 90px 120px;
+    position:relative;
+}
+
+/* ===== TITLE ===== */
+
+.title{
+    position:relative;
+    z-index:2;
+
+    font-size:95px;
+    font-family:'Baloo 2', cursive;
+
+    text-shadow:
+    0 5px 0 #6b21a8,
+    0 12px 25px rgba(0,0,0,0.5);
+
+    margin-top:30px;
+
+    text-align:center;
+}
+
+.subtitle{
+    position:relative;
+    z-index:2;
+
+    font-size:22px;
+    margin-top:10px;
+
+    opacity:0.9;
+
+    text-align:center;
+}
+
+/* ===== WRAPPER ===== */
+
+.modul-wrapper{
+    margin-top:45px;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:40px;
+
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 30px rgba(192,132,252,0.35);
+}
+
+/* ================================= */
+/* QUIZ INTERAKTIF */
+/* ================================= */
+
+.quiz-box{
+
+    background:#f8f5ff;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+}
+
+.quiz-box h2{
+
+    color:#4c1d95;
+
+    margin-bottom:35px;
+
+    font-size:38px;
+
+    text-align:center;
+}
+
+.question{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    margin-bottom:28px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.05);
+}
+
+.question h3{
+
+    color:#2e1065;
+
+    margin-bottom:20px;
+
+    line-height:1.7;
+}
+
+.option{
+
+    width:100%;
+
+    border:none;
+
+    margin-bottom:15px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    text-align:left;
+
+    transition:0.3s;
+
+    background:#ede9fe;
+
+    font-family:'Poppins', sans-serif;
+}
+
+.option:hover{
+
+    background:#d8b4fe;
+
+    transform:translateY(-2px);
+}
+
+.correct{
+
+    background:#22c55e !important;
+
+    color:white;
+}
+
+.wrong{
+
+    background:#ef4444 !important;
+
+    color:white;
+}
+
+.result{
+
+    margin-top:12px;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    color:#2e1065;
+}
+
+.score-box{
+
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:white;
+}
+
+.score-box h2{
+
+    font-size:55px;
+
+    color:white;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    background:white;
+    color:black;
+    padding:55px 120px;
+    margin-top:70px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:80px;
+}
+
+.footer h3{
+    margin-bottom:18px;
+    color:#4c1d95;
+    font-size:24px;
+}
+
+.footer p{
+    margin-bottom:10px;
+    color:#444;
+    font-size:17px;
+}
+
+.footer-bottom{
+    background:#f5f5f5;
+    color:black;
+    text-align:center;
+    padding:18px;
+    font-size:16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1100px){
+
+    .title{
+        font-size:70px;
+    }
+
+    .container{
+        padding:30px;
+    }
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        gap:20px;
+    }
+
+    .title{
+        font-size:50px;
+        text-align:center;
+    }
+
+    .subtitle{
+        text-align:center;
+    }
+
+    .footer{
+        padding:40px 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Kontak Kami</a>
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+    <div class="title">
+        LKPD ✨
+    </div>
+
+    <div class="subtitle">
+        Lembar Kerja Peserta Didik Interaktif Perpajakan
+    </div>
+
+    <!-- WRAPPER -->
+
+    <div class="modul-wrapper">
+
+
+
+<div class="quiz-box">
+
+<h2>🧠 Quiz Interaktif PPH 2</h2>
+
+<!-- SOAL 1 -->
+<div class="question">
+<h3>1. Seorang dokter praktik menerima honorarium dari beberapa rumah sakit tanpa hubungan kerja tetap. Status perpajakannya termasuk ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pegawai tetap perusahaan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. pegawai tidak tetap harian
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. bukan pegawai tenaga ahli
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. pegawai kontrak tahunan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. wajib pajak badan usaha
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 2 -->
+<div class="question">
+<h3>2. Perbedaan utama pegawai tetap dan bukan pegawai terletak pada ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. jumlah penghasilan yang diterima
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. ada atau tidaknya hubungan kerja tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. kepemilikan NPWP pribadi
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. jumlah pemberi penghasilan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. jenis pekerjaan yang dilakukan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 3 -->
+<div class="question">
+<h3>3. Seorang MC menerima honorarium hanya satu kali dalam satu tahun. Berdasarkan klasifikasinya, penghasilan tersebut termasuk ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pegawai tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. berkesinambungan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. tidak berkesinambungan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. penghasilan final
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. penghasilan bebas pajak
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 4 -->
+<div class="question">
+<h3>4. Mengapa tenaga ahli seperti notaris atau akuntan termasuk bukan pegawai?</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. karena tidak menerima penghasilan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. karena tidak memiliki hubungan kerja tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. karena penghasilannya selalu final
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. karena tidak wajib memiliki NPWP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. karena dibayar pemerintah
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 5 -->
+<div class="question">
+<h3>5. Perusahaan menganggap semua penerima honorarium sebagai pegawai tetap. Kesalahan tersebut dapat menyebabkan ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. perhitungan pajak menjadi tidak sesuai ketentuan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. penghasilan bruto menjadi nihil
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. PTKP seluruh penerima hilang
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. tarif progresif tidak berlaku
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. pegawai bebas dari SPT
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 6 -->
+<div class="question">
+<h3>6. Seseorang menerima penghasilan dari kegiatan seminar sebagai narasumber sebanyak empat kali dalam satu tahun. Status penghasilannya termasuk ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pegawai tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. berkesinambungan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. penghasilan final
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. pegawai harian
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. penghasilan bukan objek
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 7 -->
+<div class="question">
+<h3>7. Seorang agen asuransi memperoleh komisi dari perusahaan asuransi. Dalam materi PPh 21, agen asuransi dikategorikan sebagai ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pegawai tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. tenaga kerja asing
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. bukan pegawai
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. pegawai kontrak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. pengusaha kena pajak
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 8 -->
+<div class="question">
+<h3>8. Penerima penghasilan berikut yang paling tepat dikategorikan sebagai bukan pegawai adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. staf administrasi kantor
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. manajer operasional perusahaan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. arsitek proyek lepas
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. pegawai HRD tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. kasir toko harian
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 9 -->
+<div class="question">
+<h3>9. Seorang musisi tampil pada sebuah acara perusahaan dan memperoleh pembayaran jasa. Pajak atas penghasilan tersebut termasuk ...</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. PPh 21 bukan pegawai
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. PPh final UMKM
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. PPN masukan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. PPh badan usaha
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. bea meterai
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 10 -->
+<div class="question">
+<h3>10. Klasifikasi berkesinambungan penting dalam PPh 21 bukan pegawai karena ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. menentukan warna NPWP
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. menentukan cara perhitungan pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. menghapus kewajiban pemotongan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. menggantikan penghasilan bruto
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. menentukan status PTKP keluarga
+</button>
+
+<div class="result"></div>
+</div>
+<!-- SOAL 11 -->
+<div class="question">
+<h3>11. Seorang sales freelance menerima penghasilan hanya ketika berhasil menjual produk. Statusnya lebih tepat sebagai ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pegawai tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. pegawai kontrak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. pegawai pensiun
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+D. bukan pegawai
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. bendahara pemerintah
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 12 -->
+<div class="question">
+<h3>12. Jika seorang pembicara seminar menerima honorarium dari banyak pihak sepanjang tahun, maka pihak pemberi penghasilan ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. tidak perlu memotong pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. tetap memiliki kewajiban pemotongan sesuai ketentuan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. harus menghapus NPWP penerima
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. wajib menjadikan penerima sebagai pegawai
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. mengubah penghasilan menjadi PPN
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 13 -->
+<div class="question">
+<h3>13. Mengapa hubungan kerja setara tetapi tidak tetap tetap dikenai PPh 21?</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. karena seluruh penghasilan wajib dikenai PPN
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. karena penghasilan jasa tetap merupakan objek pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. karena penerima wajib memiliki perusahaan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. karena honorarium termasuk PTKP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. karena penghasilan tidak boleh dilaporkan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 14 -->
+<div class="question">
+<h3>14. Seorang konsultan menerima pembayaran proyek satu kali dalam setahun. Berdasarkan klasifikasinya, penghasilan tersebut termasuk ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. berkesinambungan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. pegawai tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. tidak berkesinambungan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. penghasilan bukan objek
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. penghasilan final daerah
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 15 -->
+<div class="question">
+<h3>15. Bendahara pemerintah membayar honorarium kepada narasumber seminar. Dalam konteks PPh 21, bendahara pemerintah bertindak sebagai ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. penerima penghasilan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. pengawas pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. pemotong PPh 21
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. wajib pajak badan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. penanggung PTKP
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 16 -->
+<div class="question">
+<h3>16. Mengelompokkan seluruh pekerja lepas sebagai pegawai tetap dapat menimbulkan masalah karena ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. semua pekerja lepas memiliki PTKP berbeda
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. ketentuan penghitungan pajaknya tidak sama
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. pegawai tetap tidak wajib pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. penghasilan bruto menjadi hilang
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. pegawai tetap tidak memiliki NPWP
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 17 -->
+<div class="question">
+<h3>17. Yang menjadi ciri utama bukan pegawai dibanding pegawai tetap adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. penghasilan selalu di bawah PTKP
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. tidak memiliki hubungan kerja permanen
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. selalu bekerja sendiri
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. tidak wajib membayar pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. selalu menerima gaji bulanan
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 18 -->
+<div class="question">
+<h3>18. Perusahaan lebih berhati-hati mengklasifikasikan bukan pegawai karena kesalahan klasifikasi dapat berdampak pada ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. warna bukti potong
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. jumlah biaya jabatan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. ketepatan pemotongan pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. masa berlaku NPWP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. jumlah tanggungan keluarga
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 19 -->
+<div class="question">
+<h3>19. Seorang moderator seminar menerima honorarium satu kali dan tidak pernah lagi dalam tahun yang sama. Kategori yang paling tepat adalah ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pegawai tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. pegawai harian
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. berkesinambungan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+D. tidak berkesinambungan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. pegawai kontrak
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 20 -->
+<div class="question">
+<h3>20. Inti dari pengenaan PPh 21 bukan pegawai adalah bahwa ...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. seluruh penerima penghasilan diperlakukan sama
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. penghasilan jasa pribadi tetap dikenai pajak meskipun tanpa hubungan kerja tetap
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. pegawai tetap dan bukan pegawai memiliki tarif identik
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. PTKP tidak berlaku pada semua penerima penghasilan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. penghasilan honorarium selalu bebas pajak
+</button>
+
+<div class="result"></div>
+</div>
+
+
+<div class="score-box">
+
+<h2 id="score">0</h2>
+
+<p>Skor Kamu</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+    <div class="footer-content">
+
+        <div>
+            <h3>Alamat Sekolah</h3>
+            <p>SMK Negeri 1 Jatirejo</p>
+            <p>Jl. Raya Sumengko Jatirejo, Mojokerto</p>
+            <p>Jawa Timur, Indonesia</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>📘 Facebook: smkn1jatirejo</p>
+            <p>📷 Instagram: smkn1jatirejo</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
+</div>
+
+<script>
+
+let score = 0;
+
+function checkAnswer(button, correct){
+
+    let parent = button.parentElement;
+
+    let options = parent.querySelectorAll('.option');
+
+    let result = parent.querySelector('.result');
+
+    options.forEach(opt => {
+
+        opt.disabled = true;
+
+    });
+
+    if(correct){
+
+        button.classList.add('correct');
+
+        result.innerHTML = "✅ Jawaban Benar";
+
+        score += 5;
+
+    }else{
+
+        button.classList.add('wrong');
+
+        result.innerHTML = "❌ Jawaban Salah";
+
+    }
+
+    document.getElementById('score').innerHTML = score;
+}
+
+</script>
+
+</body>
+</html>

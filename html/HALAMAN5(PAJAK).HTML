@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LKPD | LUNA EDU</title>
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    color:white;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    background:
+    linear-gradient(rgba(20,0,60,0.78), rgba(60,0,120,0.88)),
+    url("https://github.com/dimasorange258/testing/blob/main/images/hu%20'.gif?raw=true");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 70px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.menu{
+    display:flex;
+    gap:50px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:300;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#d8b4fe;
+    transition:0.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:30px 90px 120px;
+    position:relative;
+}
+
+/* ===== TITLE ===== */
+
+.title{
+    position:relative;
+    z-index:2;
+
+    font-size:95px;
+    font-family:'Baloo 2', cursive;
+
+    text-shadow:
+    0 5px 0 #6b21a8,
+    0 12px 25px rgba(0,0,0,0.5);
+
+    margin-top:30px;
+
+    text-align:center;
+}
+
+.subtitle{
+    position:relative;
+    z-index:2;
+
+    font-size:22px;
+    margin-top:10px;
+
+    opacity:0.9;
+
+    text-align:center;
+}
+
+/* ===== WRAPPER ===== */
+
+.modul-wrapper{
+    margin-top:45px;
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:40px;
+
+    position:relative;
+    z-index:2;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    0 0 30px rgba(192,132,252,0.35);
+}
+
+/* ================================= */
+/* QUIZ INTERAKTIF */
+/* ================================= */
+
+.quiz-box{
+
+    background:#f8f5ff;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+}
+
+.quiz-box h2{
+
+    color:#4c1d95;
+
+    margin-bottom:35px;
+
+    font-size:38px;
+
+    text-align:center;
+}
+
+.question{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    margin-bottom:28px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.05);
+}
+
+.question h3{
+
+    color:#2e1065;
+
+    margin-bottom:20px;
+
+    line-height:1.7;
+}
+
+.option{
+
+    width:100%;
+
+    border:none;
+
+    margin-bottom:15px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    text-align:left;
+
+    transition:0.3s;
+
+    background:#ede9fe;
+
+    font-family:'Poppins', sans-serif;
+}
+
+.option:hover{
+
+    background:#d8b4fe;
+
+    transform:translateY(-2px);
+}
+
+.correct{
+
+    background:#22c55e !important;
+
+    color:white;
+}
+
+.wrong{
+
+    background:#ef4444 !important;
+
+    color:white;
+}
+
+.result{
+
+    margin-top:12px;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    color:#2e1065;
+}
+
+.score-box{
+
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    margin-top:40px;
+
+    color:white;
+}
+
+.score-box h2{
+
+    font-size:55px;
+
+    color:white;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    background:white;
+    color:black;
+    padding:55px 120px;
+    margin-top:70px;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:80px;
+}
+
+.footer h3{
+    margin-bottom:18px;
+    color:#4c1d95;
+    font-size:24px;
+}
+
+.footer p{
+    margin-bottom:10px;
+    color:#444;
+    font-size:17px;
+}
+
+.footer-bottom{
+    background:#f5f5f5;
+    color:black;
+    text-align:center;
+    padding:18px;
+    font-size:16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1100px){
+
+    .title{
+        font-size:70px;
+    }
+
+    .container{
+        padding:30px;
+    }
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .menu{
+        gap:20px;
+    }
+
+    .title{
+        font-size:50px;
+        text-align:center;
+    }
+
+    .subtitle{
+        text-align:center;
+    }
+
+    .footer{
+        padding:40px 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Kontak Kami</a>
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+    <div class="title">
+        LKPD ✨
+    </div>
+
+    <div class="subtitle">
+        Lembar Kerja Peserta Didik Interaktif Perpajakan
+    </div>
+
+    <!-- WRAPPER -->
+
+    <div class="modul-wrapper">
+
+
+
+<div class="quiz-box">
+
+<h2>🧠 Quiz Interaktif LKPD SPT</h2>
+
+<div class="question">
+<h3>1. Berdasarkan Pasal 1 ayat 10 UU KUP, Surat Pemberitahuan (SPT) digunakan oleh Wajib Pajak untuk...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. menghitung sendiri jumlah pajak terutang tanpa perlu melapor ke otoritas pajak</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. melaporkan perhitungan dan pembayaran pajak yang terutang menurut peraturan perundang-undangan</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. mengajukan keberatan terhadap penetapan pajak yang dilakukan oleh fiskus</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. meminta pengurangan jumlah pajak yang telah ditetapkan dalam SKP</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. mencatat semua transaksi keuangan pribadi selama satu tahun berjalan</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 2 -->
+<div class="question">
+<h3>2. Fungsi SPT bagi Pengusaha Kena Pajak (PKP) yang paling tepat terkait PPN adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. melaporkan pembayaran PPh Pasal 21 yang telah dipotong dari gaji karyawan</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. mengkreditkan Pajak Masukan terhadap Pajak Keluaran dalam satu masa pajak</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. menghitung besaran denda administrasi atas keterlambatan penyetoran</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. menyampaikan data kepemilikan barang mewah kepada Dirjen Pajak</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. meminta pengembalian pendahuluan kelebihan pajak sebelum audit</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 3 -->
+<div class="question">
+<h3>3. Seorang karyawan dengan penghasilan Rp55 juta per tahun dari satu perusahaan. Manakah pernyataan yang paling sesuai dengan fungsi SPT bagi orang pribadi tersebut?</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. SPT berfungsi untuk melaporkan pembayaran pajak yang telah dipotong oleh perusahaan sekaligus mempertanggungjawabkan jumlah utang pajak sebenarnya</button>
+
+<button class="option" onclick="checkAnswer(this,false)">B. SPT hanya berfungsi sebagai arsip pribadi tanpa konsekuensi hukum</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. SPT harus dilengkapi dengan laporan keuangan audit karena penghasilannya di atas PTKP</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. SPT wajib menggunakan formulir 1770 karena pegawai tetap</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. SPT tidak perlu dilaporkan karena penghasilan masih di bawah Rp60 juta</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 4 -->
+<div class="question">
+<h3>4. Dalam fungsi SPT sebagai sarana pelaporan pemotongan pajak oleh pihak lain, manakah contoh penerapan yang paling tepat?</h3>
+
+<button class="option" onclick="checkAnswer(this,true)">A. Perusahaan melaporkan pemotongan PPh Pasal 21 karyawan melalui SPT Masa PPh Pasal 21</button>
+
+<button class="option" onclick="checkAnswer(this,false)">B. Wajib Pajak melaporkan harta kekayaannya dalam SPT Tahunan</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. PKP melaporkan jumlah penjualan ekspor dalam SPT Masa PPN</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. Wajib Pajak mengajukan permohonan pembetulan SPT karena kesalahan hitung</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Bendahara pemerintah melaporkan realisasi anggaran belanja ke Kemenkeu</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 5 -->
+<div class="question">
+<h3>5. Manakah pernyataan yang paling tepat mengenai SPT Masa PPh Pasal 22?</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Merupakan pemotongan pajak atas penghasilan berupa bunga dan royalti</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. Dikenakan atas pembayaran barang dalam kegiatan impor atau penjualan barang mewah</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. Hanya berlaku untuk Wajib Pajak Badan yang omzetnya di atas Rp50 miliar</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. Dilaporkan setiap tiga bulan sekali bersamaan dengan SPT Tahunan</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Tidak memerlukan bukti setor karena langsung dipotong oleh bank devisa</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 6 -->
+<div class="question">
+<h3>6. Seorang importir membeli barang elektronik dari luar negeri. Pajak apa yang harus dilaporkan dalam SPT Masa terkait transaksi ini?</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. PPh Pasal 21 dan PPnBM</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. PPh Pasal 22 dan PPN</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. PPh Pasal 23 dan PPh Pasal 25</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. PPh Pasal 15 dan PPh Pasal 26</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. PPh Final dan PBB</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 7 -->
+<div class="question">
+<h3>7. Perbedaan mendasar antara SPT Masa dan SPT Tahunan terletak pada...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. jumlah halaman formulir yang harus diisi</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. periode pelaporan dan jenis pajak yang dilaporkan</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. tanda tangan yang diperlukan dari notaris</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. kewajiban melampirkan laporan keuangan audit</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. tempat penyampaiannya ke KPP atau KP2KP</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 8 -->
+<div class="question">
+<h3>8. Manakah yang termasuk dalam jenis pajak yang dilaporkan dalam SPT Masa PPh Pasal 23?</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. Gaji bulanan karyawan tetap</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. Dividen, bunga, royalti, dan hadiah</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. Penjualan tanah dan bangunan</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. Impor kendaraan bermotor mewah</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Pembayaran tenaga kerja lepas harian</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 9 -->
+<div class="question">
+<h3>9. Formulir SPT Tahunan 1770 SS diperuntukkan bagi Wajib Pajak dengan kriteria...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. penghasilan tahunan lebih dari Rp60 juta dengan dua sumber penghasilan</button>
+
+<button class="option" onclick="checkAnswer(this,true)">B. penghasilan tahunan kurang dari atau sama dengan Rp60 juta dari satu pemberi kerja</button>
+
+<button class="option" onclick="checkAnswer(this,false)">C. memiliki usaha sendiri atau pekerjaan bebas tanpa ikatan kontrak</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. Wajib Pajak Badan dengan peredaran bruto di bawah Rp4,8 miliar</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. Wajib Pajak yang menggunakan pembukuan dalam mata uang asing</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 10 -->
+<div class="question">
+<h3>10. Seorang konsultan yang tidak terikat kontrak dengan badan usaha dan memiliki penghasilan dari keahlian khusus. Formulir SPT Tahunan yang wajib digunakan adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">A. 1770 SS</button>
+
+<button class="option" onclick="checkAnswer(this,false)">B. 1770 S</button>
+
+<button class="option" onclick="checkAnswer(this,true)">C. 1770</button>
+
+<button class="option" onclick="checkAnswer(this,false)">D. 1771</button>
+
+<button class="option" onclick="checkAnswer(this,false)">E. 1721 A1</button>
+
+<div class="result"></div>
+</div>
+
+<<!-- SOAL 11 -->
+<div class="question">
+<h3>11. Fungsi SPT bagi pemotong pajak sebagaimana dijelaskan dalam materi adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. sarana untuk menghitung kewajiban pajak final setiap bulan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. sarana untuk melaporkan dan mempertanggungjawabkan kepada pihak yang dipotong atau dipungut pajaknya
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. alat bukti dalam pemeriksaan bukti permulaan tindak pidana perpajakan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. dasar penerbitan Surat Tagihan Pajak oleh KPP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. syarat pengajuan restitusi PPN bagi PKP
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 12 -->
+<div class="question">
+<h3>12. PPh Pasal 25 dalam SPT Masa berisi ketentuan tentang...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. pemotongan pajak atas penghasilan dari hadiah undian
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. pembayaran pajak penghasilan secara angsuran oleh WP OP maupun Badan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. pemungutan pajak atas transaksi ekspor barang tertentu
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. pelaporan harta baru yang diperoleh selama tahun berjalan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. perhitungan ulang penghasilan tidak kena pajak
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 13 -->
+<div class="question">
+<h3>13. Manakah yang bukan merupakan fungsi SPT bagi PKP berdasarkan materi?</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. Melaporkan perhitungan jumlah PPN dan PPnBM yang terutang
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. Melaporkan pengkreditan Pajak Masukan terhadap Pajak Keluaran
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. Melaporkan pembayaran atau pelunasan pajak yang telah dilaksanakan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+D. Menghitung besaran denda atas keterlambatan penyetoran PPN
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. Menjadi sarana pertanggungjawaban penghitungan PPN
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 14 -->
+<div class="question">
+<h3>14. Wajib Pajak Badan memiliki tahun buku April–Maret. Kapan batas akhir penyampaian SPT Tahunan PPh Badan?</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. 31 Maret tahun berikutnya
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. 30 April tahun berikutnya
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. 31 Juli tahun berikutnya
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. 31 Desember tahun berjalan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. 30 September tahun berikutnya
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 15 -->
+<div class="question">
+<h3>15. Konsekuensi jika Wajib Pajak tidak menyampaikan SPT sampai batas waktu yang ditentukan adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. dikenakan sanksi pidana penjara tanpa denda
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. dikenakan sanksi administrasi berupa denda
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. NPWP otomatis dinonaktifkan seumur hidup
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. seluruh rekening bank dibekukan sementara
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. wajib membayar pajak 2 kali lipat dari utang pokok
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 16 -->
+<div class="question">
+<h3>16. PPnBM dikenakan pada barang mewah seperti mobil dan perhiasan. Karakteristik PPnBM yang benar adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. dibayarkan setiap bulan oleh konsumen akhir
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. dibayarkan satu kali oleh produsen atau importir saat kegiatan usaha
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. hanya dikenakan jika barang diekspor ke luar negeri
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. dikenakan bersama dengan PPh Final atas penjualan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. tidak perlu dilaporkan dalam SPT Masa
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 17 -->
+<div class="question">
+<h3>17. Perbedaan utama formulir SPT 1770 S dan 1770 terletak pada...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. jumlah NPWP yang digunakan
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. sumber penghasilan dan kompleksitas pekerjaan WP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. warna formulir yang digunakan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. tempat pelaporan di KPP atau KP2KP
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. jenis meterai yang ditempel
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 18 -->
+<div class="question">
+<h3>18. Dalam konteks SPT Masa PPh Pasal 21, fungsi utama SPT adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. melaporkan pembayaran angsuran PPh Pasal 25
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. melaporkan pemotongan pajak atas penghasilan karyawan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. mencatat transaksi impor barang mewah
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. menghitung kredit pajak luar negeri
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. mengajukan pengurangan PPh terutang
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 19 -->
+<div class="question">
+<h3>19. Seorang WP OP memiliki penghasilan dari dua perusahaan berbeda dalam satu tahun. Dokumen apa yang wajib dilampirkan dalam SPT Tahunan?</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. Faktur pajak masukan dari setiap pemberi kerja
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. Bukti potong 1721 A1 atau 1721 A2 dari masing-masing pemberi kerja
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. Surat kuasa khusus dari pemberi kerja
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. Fotokopi izin usaha dari perusahaan pertama
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. Laporan keuangan yang diaudit kantor akuntan publik
+</button>
+
+<div class="result"></div>
+</div>
+
+<!-- SOAL 20 -->
+<div class="question">
+<h3>20. Pernyataan berikut yang paling tepat mengenai sanksi administrasi SPT adalah...</h3>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. sanksi hanya berlaku untuk SPT Tahunan, tidak untuk SPT Masa
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. denda dihitung berdasarkan persentase pajak terutang per bulan keterlambatan
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. WP masih bisa menyampaikan SPT setelah batas waktu tanpa sanksi jika membayar pokok pajak
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+D. sanksi administrasi berupa denda dikenakan jika SPT tidak disampaikan tepat waktu
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+E. sanksi hanya diberikan setelah ada surat teguran tertulis dari KPP
+</button>
+
+<div class="result"></div>
+</div>
+
+
+
+<div class="score-box">
+
+<h2 id="score">0</h2>
+
+<p>Skor Kamu</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+    <div class="footer-content">
+
+        <div>
+            <h3>Alamat Sekolah</h3>
+            <p>SMK Negeri 1 Jatirejo</p>
+            <p>Jl. Raya Sumengko Jatirejo, Mojokerto</p>
+            <p>Jawa Timur, Indonesia</p>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <p>📘 Facebook: smkn1jatirejo</p>
+            <p>📷 Instagram: smkn1jatirejo</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <p>© 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved</p>
+</div>
+
+<script>
+
+let score = 0;
+
+function checkAnswer(button, correct){
+
+    let parent = button.parentElement;
+
+    let options = parent.querySelectorAll('.option');
+
+    let result = parent.querySelector('.result');
+
+    options.forEach(opt => {
+
+        opt.disabled = true;
+
+    });
+
+    if(correct){
+
+        button.classList.add('correct');
+
+        result.innerHTML = "✅ Jawaban Benar";
+
+        score += 5;
+
+    }else{
+
+        button.classList.add('wrong');
+
+        result.innerHTML = "❌ Jawaban Salah";
+
+    }
+
+    document.getElementById('score').innerHTML = score;
+}
+
+</script>
+
+</body>
+</html>

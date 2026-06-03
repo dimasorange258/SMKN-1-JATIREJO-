@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUNA EDU</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== BODY ===== */
+
+body {
+    margin: 0;
+    color: white;
+    overflow-x: hidden;
+
+    background:
+    linear-gradient(rgba(20,0,60,0.7), rgba(60,0,120,0.8)),
+    url("https://github.com/dimasorange258/testing/blob/main/images/hu%20'.gif?raw=true")
+    no-repeat center center fixed;
+
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* WRAPPER */
+
+.wrapper {
+    flex: 1;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+.logo img {
+    width: 60px;
+}
+
+.menu {
+    display: flex;
+    gap: 40px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #c084fc;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 60px 80px;
+    min-height: 100vh;
+}
+
+.hero-text {
+    max-width: 550px;
+}
+
+.hero-text h1 {
+    font-size: 65px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* BUTTON */
+
+.btn {
+    padding: 15px 40px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #a855f7, #6d28d9);
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+}
+
+/* HERO IMAGE */
+
+.hero-img img {
+    width: 450px;
+    border-radius: 10px;
+}
+
+/* ===== SECTION ===== */
+
+.next-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+/* ===== VIDEO ===== */
+
+.video-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+}
+
+/* ===== TAGLINE ===== */
+
+.tagline {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.sub-tagline {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* ===== CARD WRAPPER ===== */
+
+.cards-wrapper{
+    position:relative;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* ===== CARDS ===== */
+
+.cards{
+    display:flex;
+    gap:40px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    padding:20px;
+
+    width:90%;
+}
+
+.cards::-webkit-scrollbar{
+    display:none;
+}
+
+/* ===== CARD ===== */
+
+.card {
+    min-width: 280px;
+    background: rgba(255,255,255,0.95);
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    color: #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.7);
+}
+
+.card-title {
+    background: linear-gradient(135deg, #7c3aed, #9333ea);
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* ===== BUTTON SCROLL ===== */
+
+.scroll-btn{
+
+    position:absolute;
+
+    width:55px;
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+
+    color:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.3);
+}
+
+.scroll-btn:hover{
+
+    transform:scale(1.1);
+
+    background:linear-gradient(135deg,#9333ea,#c084fc);
+}
+
+.scroll-btn.left{
+    left:0;
+}
+
+.scroll-btn.right{
+    right:0;
+}
+
+/* ===== STATISTIK ===== */
+
+.stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.stat {
+    background: rgba(255,255,255,0.15);
+    padding: 12px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+    background: white;
+    color: black;
+    padding: 30px 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-bottom {
+    background: whitesmoke;
+    color: black;
+    text-align: center;
+    padding: 12px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 120px 20px;
+    }
+
+    .hero-img img {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .scroll-btn{
+        display:none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="https://github.com/dimasorange258/testing/blob/main/images/logo%20web%20jatirejo.png?raw=true">
+    </div>
+
+    <div class="menu">
+        <a href="index.html">HOME</a>
+        <a href="#">TENTANG KAMI</a>
+        <a href="#">KONTAK KAMI</a>
+    </div>
+
+</div>
+
+<!-- HERO -->
+
+<div class="hero">
+
+    <div class="hero-text">
+
+        <h1>
+            SELAMAT DATANG<br>
+            DI WEB KAMI
+        </h1>
+
+        <p>
+            Platform pembelajaran digital yang membantu siswa memahami materi secara interaktif dan modern.
+        </p>
+
+        <a href="#next" class="btn">
+            SCROLL DOWN
+        </a>
+
+    </div>
+
+    <div class="hero-img">
+
+        <img src="https://github.com/dimasorange258/testing/blob/main/images/%5DORANG%20BELAJAR%202.png?raw=true">
+
+    </div>
+
+</div>
+
+<!-- SECTION -->
+
+<div id="next" class="next-section">
+
+    <!-- VIDEO -->
+
+    <div class="video-bg">
+
+        <video autoplay muted loop>
+
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+
+        </video>
+
+    </div>
+
+    <!-- TAGLINE -->
+
+    <div class="tagline">
+        🚀 Upgrade Cara Belajarmu dengan Teknologi Digital
+    </div>
+
+    <div class="sub-tagline">
+        Belajar lebih efektif dengan materi, latihan, dan pengalaman interaktif
+    </div>
+
+    <!-- CARD WRAPPER -->
+
+    <div class="cards-wrapper">
+
+        <!-- BUTTON LEFT -->
+
+        <button class="scroll-btn left" onclick="scrollCards(-320)">
+            ❮
+        </button>
+
+        <!-- CARDS -->
+
+        <div class="cards" id="cardsContainer">
+
+            <!-- CARD 1 -->
+
+            <a href="" style="text-decoration:none; color:inherit;">
+
+                <div class="card">
+
+                    <div class="card-title">
+                        Akuntansi Lembaga
+                    </div>
+
+                    <p>
+                        Pembelajaran instansi pemerintah
+                    </p>
+
+                </div>
+
+            </a>
+
+            <!-- CARD 2 -->
+
+            <a href="" style="text-decoration:none; color:inherit;">
+
+                <div class="card">
+
+                    <div class="card-title">
+                        Akuntansi Keuangan
+                    </div>
+
+                    <p>
+                        Laporan keuangan & standar
+                    </p>
+
+                </div>
+
+            </a>
+
+            <!-- CARD 3 -->
+
+            <a href="HALAMAN2(PAJAK).HTML" style="text-decoration:none; color:inherit;">
+
+                <div class="card">
+
+                    <div class="card-title">
+                        Perpajakan
+                    </div>
+
+                    <p>
+                        Pemahaman pajak
+                    </p>
+
+                </div>
+
+            </a>
+
+            <!-- CARD 4 -->
+
+            <a href="HALAMAN8(DDAK).HTML" style="text-decoration:none; color:inherit;">
+
+                <div class="card">
+
+                    <div class="card-title">
+                        Dasar Akuntansi
+                    </div>
+
+                    <p>
+                        Konsep dasar akuntansi
+                    </p>
+
+                </div>
+
+            </a>
+
+            <!-- CARD 5 -->
+
+            <a href="" style="text-decoration:none; color:inherit;">
+
+                <div class="card">
+
+                    <div class="card-title">
+                        Komputer Akuntansi
+                    </div>
+
+                    <p>
+                        Software akuntansi
+                    </p>
+
+                </div>
+
+            </a>
+
+            <!-- CARD 6 -->
+
+            <a href="" style="text-decoration:none; color:inherit;">
+
+                <div class="card">
+
+                    <div class="card-title">
+                        Praktikum
+                    </div>
+
+                    <p>
+                        Dagang & jasa
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+        <!-- BUTTON RIGHT -->
+
+        <button class="scroll-btn right" onclick="scrollCards(320)">
+            ❯
+        </button>
+
+    </div>
+
+    <!-- STATISTIK -->
+
+    <div class="stats">
+
+        <div class="stat">
+            👨‍🎓 1000+ Siswa
+        </div>
+
+        <div class="stat">
+            📚 50+ Materi
+        </div>
+
+        <div class="stat">
+            🎥 20+ Video
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>Alamat Sekolah</h3>
+
+            <p>SMK Negeri 1 Jatirejo</p>
+
+            <p>Jl. Raya Sumengko Jatirejo, Mojokerto</p>
+
+            <p>Jawa Timur, Indonesia</p>
+
+        </div>
+
+        <div>
+
+            <h3>Follow Us</h3>
+
+            <p>📘 Facebook: smkn1jatirejo</p>
+
+            <p>📷 Instagram: smkn1jatirejo</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer-bottom">
+
+    <p>
+        © 2026 PLP PENDIDIKAN AKUNTANSI UNESA | All Rights Reserved
+    </p>
+
+</div>
+
+<!-- SCRIPT -->
+
+<script>
+
+function scrollCards(value){
+
+    document.getElementById("cardsContainer")
+    .scrollBy({
+        left:value,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
